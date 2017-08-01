@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import Data from './Data';
+import OrderData from '../data/orderData';
 import { View, Text, StyleSheet, TouchableOpacity, ListView, ScrollView,TextInput, ToastAndroid } from 'react-native';
 import styles from '../styles/styles';
-import {orderLoadData, DataUpdated} from '../actions'
+import { LoadData, DataUpdated} from '../actions'
 import { connect } from 'react-redux';
 
 const ActionButton = require('../containers/ActionButton');
 
 
 class Order extends Component {
-
     constructor(props) {
         super(props);
-        //Data.setID('238999');
         data=[];
         this.state= {
           symbol:'',
@@ -39,33 +37,34 @@ class Order extends Component {
     }
     loadData()
     {
-      this.props.dispatch(orderLoadData());
-      ///this.setState({symbol: value})
+      OrderData.clearData();
+      this.props.dispatch(LoadData('order'));
     }
     onBuy(){
     }
     onSell(){
-      this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(Data.getData())
-      })
+    }
+    componentWillUpdate(){
+      console.log("component Will Update");
+    }
+    componentDidUpdate(){
+      if(this.props.reload){
+        this.props.dispatch(DataUpdated());
+        this.setState({
+          dataSource: this.state.dataSource.cloneWithRows(OrderData.getData())
+        })
+      }
     }
     componentWillMount(){
       console.log("Will Mount");
     }
+    componentDidMount(){
+      console.log("Did Mount");
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(OrderData.getData())
+      })
+    }
     render() {
-      console.log("render");
-      if(this.props.reload){
-        console.log("reload true");
-        this.props.dispatch(DataUpdated());
-        e = Data.getData();
-        console.log("log");
-        e.forEach((line) => {
-          console.log(line.val)
-        });
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(Data.getData())
-        })
-      }
       return (
       <ScrollView>
           <View style={styles.TextSymbol}>
@@ -105,7 +104,7 @@ class Order extends Component {
 }
 const mapStateToProps = (state,ownProps)=>{
   return {
-    reload: state.userReducer.reload
+    reload: state.networkingReducer.reload
   };
 }
 

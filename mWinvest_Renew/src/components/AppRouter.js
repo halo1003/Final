@@ -3,6 +3,7 @@ import { Container, Content,  Header, Left, Body, Right, Footer, FooterTab, Butt
 import StockList from './StockList';
 import Order from './Order';
 import Portfolio from './Portfolio';
+import UserData from '../data/userData';
 import { connect } from 'react-redux';
 import { onTouchStockList, onTouchOrder, onTouchPortfolio } from '../actions';
 
@@ -10,6 +11,7 @@ class AppRouter extends Component {
 
   constructor(props) {
     super(props);
+    //UserData.setID('238999');
   }
 
   _onTouchStockList = () =>{
