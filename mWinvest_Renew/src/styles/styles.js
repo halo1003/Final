@@ -58,6 +58,11 @@ var styles = StyleSheet.create({
   center: {
     textAlign: 'center',
   },
+  logoContainer:{
+    alignItems:'center',
+    flexGrow:1,
+    justifyContent:'center'
+  },
   actionText: {
     color: '#fff',
     fontSize: 16,
@@ -68,7 +73,6 @@ var styles = StyleSheet.create({
     borderColor: 'transparent',
     borderWidth: 1,
     paddingLeft: 16,
-    paddingTop: 14,
     paddingBottom: 16,
   },
 })
