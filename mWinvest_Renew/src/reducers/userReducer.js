@@ -1,14 +1,24 @@
 import { ToastAndroid } from 'react-native';
-import { SET_USER_NAME, SET_PASS_WORD, USET_START_AUTHORIZING, USER_AUTHORIZED, USER_NO_EXIST, DATA_LOADED, DATA_UPDATED} from '../actions/types'
-var loadFinish = 0;
+import { SET_USER_NAME, SET_PASS_WORD, USET_START_AUTHORIZING, USER_AUTHORIZED, USER_NO_EXIST } from '../actions/types'
+
 const initialState = {
+  name : null,
+  pass: null,
   authorizing:false,
   authorized:false,
-  reload: false,
+  notexist:false
 };
 
 const userReducer = (state = initialState,action) =>{
   switch (action.type) {
+
+    case SET_USER_NAME:
+      console.log(state + action.name);
+      return state;
+
+    case SET_PASS_WORD:
+      console.log(state + action.pass);
+      return state;
 
     case USET_START_AUTHORIZING:
       ToastAndroid.show('..Authorizing',ToastAndroid.SHORT);
@@ -26,20 +36,10 @@ const userReducer = (state = initialState,action) =>{
 
     case USER_NO_EXIST:
       ToastAndroid.show('Wrong Username or password',ToastAndroid.SHORT);
-      return state;
-      ///Order
-    case DATA_LOADED:
-      console.log("loaded");
-      loadFinish++;
-      if(loadFinish === 2){
-        return Object.assign({},state,{
-          reload: true,
-        });
+      return{
+        ...state,
+        notexist:true
       }
-    case DATA_UPDATED:
-      return Object.assign({},state,{
-        reload: false,
-      });
 
     default:
       return state;

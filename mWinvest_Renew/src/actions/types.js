@@ -11,9 +11,3 @@ export const USER_NO_EXIST = 'USER_NO_EXIST';
 export const START_STOCK_LIST = 'START_STOCK_LIST';
 export const START_ORDER = 'START_ORDER';
 export const START_PORTFOLIO = 'START_PORTFOLIO';
-
-//actionOrder.js
-
-export const DATA_LOADING = 'DATA_LOADING';
-export const DATA_LOADED = 'DATA_LOADED';
-export const DATA_UPDATED = 'DATA_UPDATED';

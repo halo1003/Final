@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {View,Text,TextInput,ScrollView } from 'react-native';
-import {Footer,FooterTab, Content ,Button,Icon,Grid,Col} from 'native-base';
+import {Footer,FooterTab, Content ,Button,Icon} from 'native-base';
 import AppRouter from '../components/AppRouter';
 import {connect} from 'react-redux';
 import { onTouchStockList, onTouchOrder, onTouchPortfolio,onTouchTaskmenu} from '../actions';
 import Modal from 'react-native-modal';
-
+import { Col, Row, Grid } from "react-native-easy-grid";
 
  class AppFooter extends Component {
    constructor(){
@@ -64,41 +64,18 @@ import Modal from 'react-native-modal';
         </Button>
       </FooterTab>
     </Footer>
+    <View>
+      <Button iconLeft style={{flex:1}}>
+          <Icon name='home' />
+          <Text>Home</Text>
+      </Button>
 
-<View>
-  <Grid>
-      <Col>
-        <Button iconLeft light>
-            <Icon name='arrow-back' />
-            <Text>Back</Text>
-          </Button>
-          <Button iconLeft light>
-            <Icon name='arrow-back' />
-            <Text>Back</Text>
-          </Button>
-          <Button iconLeft light>
-            <Icon name='arrow-back' />
-            <Text>Back</Text>
-          </Button>
-      </Col>
-        <Button iconLeft light>
-          <Icon name='arrow-back' />
-          <Text>Back</Text>
-        </Button>
-        <Button iconLeft light>
-          <Icon name='arrow-back' />
-          <Text>Back</Text>
-        </Button>
-        <Button iconLeft light>
-          <Icon name='arrow-back' />
-          <Text>Back</Text>
-        </Button>
-      <Col>
-
-      </Col>
-  </Grid>
-</View>
-
+      <Button iconLeft style={{flex:1}}>
+          <Icon name='home' />
+          <Text>Home</Text>
+      </Button>
+    </View>
+<Content/>
     </View>
   );
 

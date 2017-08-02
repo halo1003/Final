@@ -71,6 +71,11 @@ var styles = StyleSheet.create({
     paddingTop: 14,
     paddingBottom: 16,
   },
+  logoContainer:{
+    alignItems:'center',
+    flexGrow:1,
+    justifyContent:'center'
+  }
 })
 
 module.exports = styles
