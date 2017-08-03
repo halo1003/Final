@@ -10,7 +10,6 @@ import {View,
 import styles from '../styles/styles';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
-
 class StockList extends Component {
   constructor(props) {
         super(props);

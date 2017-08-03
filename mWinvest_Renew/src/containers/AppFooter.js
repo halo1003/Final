@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View,Text,TextInput,ScrollView } from 'react-native';
+import {View,Text,TextInput,ScrollView,TouchableHighlight} from 'react-native';
 import {Footer,FooterTab, Content ,Button,Icon} from 'native-base';
 import AppRouter from '../components/AppRouter';
 import {connect} from 'react-redux';
@@ -41,8 +41,8 @@ import { Col, Row, Grid } from "react-native-easy-grid";
         <Text>StatusBar</Text>
       </View>
 
-    <Footer noShadow>
-      <FooterTab style={{backgroundColor:'white'}}>
+    <View style ={{height:60,backgroundColor:'white',borderTopWidth:0.5,borderTopColor:'#EEEEEE',borderBottomWidth:0.5,borderBottomColor:'#EEEEEE',paddingTop:10}}>
+      <FooterTab noShadow style={{backgroundColor:'white'}}>
         <Button  onPress= {this._onTouchStockList}>
           <Icon name="apps" />
           <Text>Quotes</Text>
@@ -63,17 +63,54 @@ import { Col, Row, Grid } from "react-native-easy-grid";
           <Text>More</Text>
         </Button>
       </FooterTab>
-    </Footer>
-    <View>
-      <Button iconLeft style={{flex:1}}>
-          <Icon name='home' />
-          <Text>Home</Text>
-      </Button>
+    </View>
+    <View style={{height:230}}>
+      <Grid>
+        <Col>
 
-      <Button iconLeft style={{flex:1}}>
-          <Icon name='home' />
-          <Text>Home</Text>
-      </Button>
+          <TouchableHighlight style={{height:45,backgroundColor:'white',borderWidth:0.5,borderColor:'#EEEEEE',alignItems: 'stretch',justifyContent:'center'}}>
+            <Text>Account</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight style={{height:45,backgroundColor:'white',borderWidth:0.5,borderColor:'#EEEEEE',alignItems: 'stretch'}}>
+            <Text>Account</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight style={{height:45,backgroundColor:'white',borderWidth:0.5,borderColor:'#EEEEEE',alignItems: 'stretch'}}>
+            <Text>Account</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight style={{height:45,backgroundColor:'white',borderWidth:0.5,borderColor:'#EEEEEE',alignItems: 'stretch'}}>
+            <Text>Account</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight style={{height:45,backgroundColor:'white',borderWidth:0.5,borderColor:'#EEEEEE',alignItems: 'stretch'}}>
+            <Text>Account</Text>
+          </TouchableHighlight>
+        </Col>
+
+        <Col>
+          <TouchableHighlight style={{height:45,backgroundColor:'white',borderWidth:0.5,borderColor:'#EEEEEE',alignItems: 'stretch'}}>
+            <Text>Account</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight style={{height:45,backgroundColor:'white',borderWidth:0.5,borderColor:'#EEEEEE',alignItems: 'stretch'}}>
+            <Text>Account</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight style={{height:45,backgroundColor:'white',borderWidth:0.5,borderColor:'#EEEEEE',alignItems: 'stretch'}}>
+            <Text>Account</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight style={{height:45,backgroundColor:'white',borderWidth:0.5,borderColor:'#EEEEEE',alignItems: 'stretch'}}>
+            <Text>Account</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight style={{height:45,backgroundColor:'white',borderWidth:0.5,borderColor:'#EEEEEE',alignItems: 'stretch'}}>
+            <Text>Account</Text>
+          </TouchableHighlight>
+        </Col>
+      </Grid>
     </View>
 <Content/>
     </View>
@@ -88,7 +125,7 @@ import { Col, Row, Grid } from "react-native-easy-grid";
             </Modal>
 
             <FooterTab style={{backgroundColor:'white'}}>
-              <Button  onPress= {this._onTouchStockList}>
+              <Button onPress= {this._onTouchStockList}>
                 <Icon name="apps" />
                 <Text>Quotes</Text>
               </Button>
