@@ -4,10 +4,10 @@ const constants = {
   actionColor: '#24CE84'
 };
 var styles = StyleSheet.create({
+
   textprice:{
     borderWidth:1,
     flexGrow:20
-
   },
 
   order: {

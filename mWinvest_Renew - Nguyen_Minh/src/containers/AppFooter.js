@@ -188,32 +188,46 @@ import { Col, Row, Grid } from "react-native-easy-grid";
       <FooterTab style={{backgroundColor:'white'}}>
               <Button onPress= {() => this.changeTab(1)}>
                 <Icon name="apps"
-                  style = {{color : (this.props.bodyNumber == 1 ? 'blue' : 'grey')}}
+                  style = {{color : (this.props.bodyNumber == 1 ? 'blue' : 'grey'),fontSize:30}}
                 />
                 <Text
-                  style = {{color : (this.props.bodyNumber == 1 ? 'blue' : 'grey')}}
+                  style = {{color : (this.props.bodyNumber == 1 ? 'blue' : 'grey'),fontSize:8}}
                 >Quotes</Text>
               </Button>
+
               <Button onPress= {() => this.changeTab(2)}>
                 <Icon name="camera"
-                  style = {{color : (this.props.bodyNumber == 2 ? 'blue' : 'grey')}}
+                  style = {{color : (this.props.bodyNumber == 2 ? 'blue' : 'grey'),fontSize:30}}
                 />
                 <Text
-                  style = {{color : (this.props.bodyNumber == 2 ? 'blue' : 'grey')}}
-                >Order</Text>
+                  style = {{color : (this.props.bodyNumber == 2 ? 'blue' : 'grey'),fontSize:8}}
+                >New Order</Text>
               </Button>
+
+              <Button onPress= {() => this.changeTab(2)}>
+                <Icon name="book"
+                  style = {{color : (this.props.bodyNumber == 2 ? 'blue' : 'grey'),fontSize:30}}
+                />
+                <Text
+                  style = {{color : (this.props.bodyNumber == 2 ? 'blue' : 'grey'),fontSize:7}}
+                >Order Book</Text>
+              </Button>
+
               <Button onPress= {() => this.changeTab(3)}>
                 <Icon name="navigate"
-                  style = {{color : (this.props.bodyNumber == 3 ? 'blue' : 'grey')}}
+                  style = {{color : (this.props.bodyNumber == 3 ? 'blue' : 'grey'),fontSize:30}}
                 />
                 <Text
-                  style = {{color : (this.props.bodyNumber == 3 ? 'blue' : 'grey')}}
-                >Port</Text>
+                  style = {{color : (this.props.bodyNumber == 3 ? 'blue' : 'grey'),fontSize:8}}
+                >Portfolios</Text>
               </Button>
+
               <Button onPress= {this._hideModal}>
-                <Icon active name="more"/>
+                <Icon active name="more"
+                  style ={{fontSize:30}}
+                />
                 <Text
-                  //style = {{color : ((this.props.bodyNumber > 4 && !this.state.visibleModal) ? 'blue' : 'grey')}}
+                  style = {{fontSize:8}}
                 >More</Text>
               </Button>
             </FooterTab>
@@ -228,9 +242,9 @@ import { Col, Row, Grid } from "react-native-easy-grid";
             <View style={styles.footerItem}>
               <Image
                 style={{height:30,width:30, tintColor:(this.props.bodyNumber == 5 ? 'blue' : 'grey')}}
-                source = {require('../images/person.png')}
+                source = {require('../images/account.png')}
               />
-              <Text style={{paddingLeft:10, color:(this.props.bodyNumber == 5 ? 'blue' : 'grey')}}>Account</Text>
+              <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 5 ? 'blue' : 'grey')}}>Account</Text>
             </View>
           </TouchableHighlight>
           <TouchableHighlight
@@ -240,9 +254,9 @@ import { Col, Row, Grid } from "react-native-easy-grid";
             <View style={styles.footerItem}>
               <Image
                 style={{height:30,width:30, tintColor:(this.props.bodyNumber == 6 ? 'blue' : 'grey')}}
-                source = {require('../images/person.png')}
+                source = {require('../images/Pipe.png')}
               />
-              <Text style={{paddingLeft:10, color:(this.props.bodyNumber == 6 ? 'blue' : 'grey')}}>Price Alert</Text>
+              <Text style={{fontSize:8,paddingLeft:10, color:(this.props.bodyNumber == 6 ? 'blue' : 'grey')}}>Price Alert</Text>
             </View>
           </TouchableHighlight>
 
@@ -253,9 +267,9 @@ import { Col, Row, Grid } from "react-native-easy-grid";
             <View style={styles.footerItem}>
               <Image
                 style={{height:30,width:30, tintColor:(this.props.bodyNumber == 7 ? 'blue' : 'grey')}}
-                source = {require('../images/person.png')}
+                source = {require('../images/market.png')}
               />
-              <Text style={{paddingLeft:10, color:(this.props.bodyNumber == 7 ? 'blue' : 'grey')}}>Markets</Text>
+              <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 7 ? 'blue' : 'grey')}}>Markets</Text>
             </View>
           </TouchableHighlight>
 
@@ -266,9 +280,9 @@ import { Col, Row, Grid } from "react-native-easy-grid";
             <View style={styles.footerItem}>
               <Image
                 style={{height:30,width:30, tintColor:(this.props.bodyNumber == 8 ? 'blue' : 'grey')}}
-                source = {require('../images/person.png')}
+                source = {require('../images/lock.png')}
               />
-              <Text style={{paddingLeft:10, color:(this.props.bodyNumber == 8 ? 'blue' : 'grey')}}>Passwords</Text>
+              <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 8 ? 'blue' : 'grey')}}>Passwords</Text>
             </View>
           </TouchableHighlight>
 
@@ -279,9 +293,9 @@ import { Col, Row, Grid } from "react-native-easy-grid";
             <View style={styles.footerItem}>
               <Image
                 style={{height:30,width:30, tintColor:(this.props.bodyNumber == 9 ? 'blue' : 'grey')}}
-                source = {require('../images/person.png')}
+                source = {require('../images/contacts.png')}
               />
-              <Text style={{paddingLeft:10, color:(this.props.bodyNumber == 9 ? 'blue' : 'grey')}}>Contacts</Text>
+              <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 9 ? 'blue' : 'grey')}}>Contacts</Text>
             </View>
           </TouchableHighlight>
         </Col>
@@ -294,9 +308,9 @@ import { Col, Row, Grid } from "react-native-easy-grid";
             <View style={styles.footerItem}>
               <Image
                 style={{height:30,width:30, tintColor:(this.props.bodyNumber == 10? 'blue' : 'grey')}}
-                source = {require('../images/person.png')}
+                source = {require('../images/help.png')}
               />
-              <Text style={{paddingLeft:10, color:(this.props.bodyNumber == 10 ? 'blue' : 'grey')}}>Help</Text>
+              <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 10 ? 'blue' : 'grey')}}>Help</Text>
             </View>
           </TouchableHighlight>
 
@@ -307,9 +321,9 @@ import { Col, Row, Grid } from "react-native-easy-grid";
             <View style={styles.footerItem}>
               <Image
                 style={{height:30,width:30, tintColor:(this.props.bodyNumber == 11? 'blue' : 'grey')}}
-                source = {require('../images/person.png')}
+                source = {require('../images/message.png')}
               />
-              <Text style={{paddingLeft:10, color:(this.props.bodyNumber == 11? 'blue' : 'grey')}}>Messages</Text>
+              <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 11? 'blue' : 'grey')}}>Messages</Text>
             </View>
           </TouchableHighlight>
 
@@ -320,9 +334,9 @@ import { Col, Row, Grid } from "react-native-easy-grid";
             <View style={styles.footerItem}>
               <Image
                 style={{height:30,width:30, tintColor:(this.props.bodyNumber == 12? 'blue' : 'grey')}}
-                source = {require('../images/person.png')}
+                source = {require('../images/fundtranfer.png')}
               />
-              <Text style={{paddingLeft:10, color:(this.props.bodyNumber == 12? 'blue' : 'grey')}}>Fund Transfer</Text>
+              <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 12? 'blue' : 'grey')}}>Fund Transfer</Text>
             </View>
           </TouchableHighlight>
 
@@ -335,7 +349,7 @@ import { Col, Row, Grid } from "react-native-easy-grid";
                 style={{height:30,width:30, tintColor:(this.props.bodyNumber == 13? 'blue' : 'grey')}}
                 source = {require('../images/person.png')}
               />
-              <Text style={{paddingLeft:10, color:(this.props.bodyNumber == 13? 'blue' : 'grey')}}>Services</Text>
+              <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 13? 'blue' : 'grey')}}>Services</Text>
             </View>
           </TouchableHighlight>
 
@@ -346,9 +360,9 @@ import { Col, Row, Grid } from "react-native-easy-grid";
             <View style={styles.footerItem}>
               <Image
                 style={{height:30,width:30, tintColor:(this.props.bodyNumber == 14? 'blue' : 'grey')}}
-                source = {require('../images/person.png')}
+                source = {require('../images/transaction.png')}
               />
-              <Text style={{paddingLeft:10, color:(this.props.bodyNumber == 14? 'blue' : 'grey')}}>Transactions</Text>
+              <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 14? 'blue' : 'grey')}}>Transactions</Text>
             </View>
           </TouchableHighlight>
         </Col>
@@ -372,34 +386,46 @@ import { Col, Row, Grid } from "react-native-easy-grid";
             <FooterTab style={{backgroundColor:'white'}}>
               <Button onPress = {() => this.changeTab(1)}>
                 <Icon name="apps"
-                  style = {{color : (this.props.bodyNumber == 1 ? 'blue' : 'grey')}}
+                  style = {{color : (this.props.bodyNumber == 1 ? 'blue' : 'grey'),fontSize:30}}
                 />
                 <Text
-                  style = {{color : (this.props.bodyNumber == 1 ? 'blue' : 'grey')}}
+                  style = {{color : (this.props.bodyNumber == 1 ? 'blue' : 'grey'),fontSize:8}}
                 >Quotes</Text>
               </Button>
+
               <Button onPress= {() => this.changeTab(2)}>
                 <Icon name="camera"
-                  style = {{color : (this.props.bodyNumber == 2 ? 'blue' : 'grey')}}
+                  style = {{color : (this.props.bodyNumber == 2 ? 'blue' : 'grey'),fontSize:30}}
                 />
                 <Text
-                  style = {{color : (this.props.bodyNumber == 2 ? 'blue' : 'grey')}}
-                >Order</Text>
+                  style = {{color : (this.props.bodyNumber == 2 ? 'blue' : 'grey'),fontSize:8}}
+                >New Order</Text>
               </Button>
+
+              <Button onPress= {() => this.changeTab(2)}>
+                <Icon name="book"
+                  style = {{color : (this.props.bodyNumber == 2 ? 'blue' : 'grey'),fontSize:30}}
+                />
+                <Text
+                  style = {{color : (this.props.bodyNumber == 2 ? 'blue' : 'grey'),fontSize:7}}
+                >Order Book</Text>
+              </Button>
+
               <Button onPress= {() => this.changeTab(3)}>
                 <Icon name="navigate"
-                  style = {{color : (this.props.bodyNumber == 3 ? 'blue' : 'grey')}}
+                  style = {{color : (this.props.bodyNumber == 3 ? 'blue' : 'grey'),fontSize:30}}
                 />
                 <Text
-                  style = {{color : (this.props.bodyNumber == 3 ? 'blue' : 'grey')}}
-                >Port</Text>
+                  style = {{color : (this.props.bodyNumber == 3 ? 'blue' : 'grey'),fontSize:8}}
+                >Portfolios</Text>
               </Button>
+
               <Button onPress= {()=>{this._showModal()}}>
                 <Icon active name="more"
-                  style = {{color : ((this.props.bodyNumber > 4) ? 'blue' : 'grey')}}
+                  style = {{color : ((this.props.bodyNumber > 4) ? 'blue' : 'grey'),fontSize:30}}
                 />
                 <Text
-                  style = {{color : ((this.props.bodyNumber > 4) ? 'blue' : 'grey')}}
+                  style = {{color : ((this.props.bodyNumber > 4) ? 'blue' : 'grey'),fontSize:8}}
                 >More</Text>
               </Button>
             </FooterTab>
