@@ -16,6 +16,18 @@ export const startPortfolio = () =>{
   }
 };
 
+export const startModal =()=>{
+  return {
+    type:'START_MODAL'
+  }
+};
+
+export const stopModal =()=>{
+  return {
+    type:'STOP_MODAL'
+  }
+};
+
 export const onTouchStockList = () =>{
   return function (dispatch){
     dispatch(startStockList());
@@ -33,3 +45,15 @@ export const onTouchPortfolio = () =>{
     dispatch(startPortfolio());
   }
 };
+
+export const onStartModal =()=>{
+  return function (dispatch){
+    dispatch(startModal());
+  }
+}
+
+export const onStopModal =()=>{
+  return function (dispatch){
+    dispatch(stopModal());
+  }
+}

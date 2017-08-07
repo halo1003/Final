@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from 'native-base';
+import { Container, Footer } from 'native-base';
 
 import AppBody from '../containers/AppBody';
 import AppHeader from '../containers/AppHeader';
@@ -8,7 +8,6 @@ import Portfolio from './Portfolio';
 import StockList from './StockList';
 import Order from './Order';
 import { connect } from 'react-redux';
-
 
  class AppRouter extends Component {
   constructor(props) {
@@ -20,7 +19,7 @@ import { connect } from 'react-redux';
       <Container>
         <AppHeader/>
           {this.props.Order ? <Order/> : this.props.Portfolio ? <Portfolio/>:<StockList/>}
-        <AppFooter />
+        <AppFooter/>
       </Container>
     );
   }

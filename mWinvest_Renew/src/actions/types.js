@@ -11,3 +11,5 @@ export const USER_NO_EXIST = 'USER_NO_EXIST';
 export const START_STOCK_LIST = 'START_STOCK_LIST';
 export const START_ORDER = 'START_ORDER';
 export const START_PORTFOLIO = 'START_PORTFOLIO';
+export const START_MODAL = 'START_MODAL';
+export const STOP_MODAL = 'STOP_MODAL';

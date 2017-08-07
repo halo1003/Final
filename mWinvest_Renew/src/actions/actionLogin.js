@@ -1,4 +1,4 @@
-import * as types from './types'
+import * as types from './types';
 import firebase from '../API/api';
 
 export const setUsername = (name) =>{
