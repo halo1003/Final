@@ -20,6 +20,8 @@
     "react-native-router-flux": "^4.0.0-beta.12",
     "react-native-scrollable-tab-view": "^0.6.7",
     "react-native-scrolling-menu": "^0.1.1",
+    "react-native-swiper": "^1.5.5",
+    "react-native-table-component": "^1.0.1",
     "react-redux": "^5.0.5",
     "react-redux-firebase": "^1.4.4",
     "react-router-redux": "^4.0.8",

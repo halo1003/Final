@@ -5,7 +5,7 @@ import AppBody from '../containers/AppBody';
 import AppHeader from '../containers/AppHeader';
 import AppFooter from '../containers/AppFooter';
 import Portfolio from './Portfolio';
-import StockList from './StockList';
+import Quotes from './Quotes';
 import Order from './Order';
 import Watchlists from './Watchlists';
 import { connect } from 'react-redux';
@@ -20,7 +20,7 @@ import { connect } from 'react-redux';
     return (
       <Container>
         <AppHeader/>
-          {this.props.bodyNumber == 1 ? <StockList/>
+          {this.props.bodyNumber == 1 ? <Quotes/>
             : this.props.bodyNumber == 2 ? <Order/>
             : this.props.bodyNumber == 3 ? <Portfolio/>
             : <Watchlists/>}

@@ -23,14 +23,6 @@ var styles = StyleSheet.create({
     justifyContent:'space-between',
     padding:20,
   },
-  mainQuote:{
-    flex: 1,
-    flexDirection:'row'
-  },
-
-  ListQute:{
-    flex: 1
-  },
 
   grid:{
     flex: 3
@@ -124,12 +116,12 @@ var styles = StyleSheet.create({
     flexDirection:'row'
   },
   footerBtn:{
-    height:45,
+    height:35,
     backgroundColor:'white',
     borderWidth:0.5,
     borderColor:'#EEEEEE',
     alignItems: 'stretch',
-    justifyContent:'center'
+    justifyContent:'center',
   },
   footerItem:{
     alignItems:'center',

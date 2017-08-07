@@ -1,5 +1,3 @@
-import { START_STOCK_LIST, START_ORDER, START_PORTFOLIO, START_WATCHLISTS} from '../actions/types'
-
 const initialState = {
   leftHeader: 'Watchlists',
   rightHeader: 'Edit',

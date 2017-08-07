@@ -8,7 +8,7 @@ export const USER_NO_EXIST = 'USER_NO_EXIST';
 
 // actionNavigator.js used by navigatorReducer.js
 
-export const START_STOCK_LIST = 'START_STOCK_LIST';
+export const START_QUOTES = 'START_QUOTES';
 export const START_ORDER = 'START_ORDER';
 export const START_PORTFOLIO = 'START_PORTFOLIO';
 export const START_WATCHLISTS = 'START_WATCHLISTS';
