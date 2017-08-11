@@ -37,6 +37,8 @@ class AppHeader extends Component {
            {this.props.bodyNumber == 1 ? 'Quotes'
            : this.props.bodyNumber == 2 ? 'Orders'
            : this.props.bodyNumber == 3 ?'Portfolios'
+           : this.props.bodyNumber == 20 ?'Portfolios'
+           : this.props.bodyNumber == 21 ?'Portfolios'
            :'Watchlists'}
          </Title>
        </Body>

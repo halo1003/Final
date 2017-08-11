@@ -86,10 +86,10 @@ import { Col, Row, Grid } from "react-native-easy-grid";
       </Button>
 
       {/* Button navigate in modal */}
-      <Button onPress= {() => this.changeTab(3)}>
+      <Button onPress= {() => this.changeTab(20)}>
         <Icon name="navigate"
-              style = {{color : (this.props.bodyNumber == 3 ? 'blue' : 'grey'),fontSize:30}}/>
-        <Text style = {{color : (this.props.bodyNumber == 3 ? 'blue' : 'grey'),fontSize:8}}>Portfolios</Text>
+              style = {{color : ((this.props.bodyNumber == 20 ||this.props.bodyNumber == 21)? 'blue' : 'grey'),fontSize:30}}/>
+        <Text style = {{color : ((this.props.bodyNumber == 20 ||this.props.bodyNumber == 21)? 'blue' : 'grey'),fontSize:8}}>Portfolios</Text>
       </Button>
 
       {/* Button more in modal */}
@@ -214,7 +214,6 @@ import { Col, Row, Grid } from "react-native-easy-grid";
               </View>
             </TouchableHighlight>
           </Col>
-
         </Grid>
       </ScrollView>
     </View>

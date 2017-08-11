@@ -7,19 +7,21 @@ const initialState = {
 const navigatorReducer = (state = initialState,action) =>{
   //console.log('called');
   switch (action.type) {
+    // QUOTES
     case 1:
       return Object.assign({},state,{
         leftHeader: 'Watchlists',
         rightHeader: 'Edit',
         bodyNumber: 1,
       });
-
+    //NEW ORDER
     case 2:
       return Object.assign({},state,{
         leftHeader: 'Edit Order',
         rightHeader: '',
         bodyNumber: 2,
       });
+    //ORDER BOOK
     case 3:
       return Object.assign({},state,{
         leftHeader: '',
@@ -34,15 +36,15 @@ const navigatorReducer = (state = initialState,action) =>{
       });
     case 5:
       return Object.assign({},state,{
-        // leftHeader: 'Watchlists',
-        // rightHeader: 'Edit',
+        //leftHeader:'',
+        //rightHeader:'',
         bodyNumber: 5,
       });
 
     case 6:
       return Object.assign({},state,{
-        // leftHeader: 'Edit Order',
-        // rightHeader: '',
+        //leftHeader:'',
+        //rightHeader:'',
         bodyNumber: 6,
       });
     case 7:
@@ -94,6 +96,22 @@ const navigatorReducer = (state = initialState,action) =>{
         // rightHeader: 'Close',
         bodyNumber: 14,
       });
+
+      /*   Segment POSITIONS   */
+      case 20:
+        return Object.assign({},state,{
+          leftHeader: '',
+          rightHeader: '',
+          bodyNumber: 20
+        });
+        /*   Segment ACCOUNTBALANCE   */
+      case 21:
+        return Object.assign({},state,{
+          leftHeader: '',
+          rightHeader: '',
+          bodyNumber: 21,
+        });
+
 
     default:
         return state

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Content } from 'native-base';
+import { Content,Container } from 'native-base';
 import { View, StyleSheet, ScrollView } from "react-native";
 import { Table, TableWraper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 
@@ -30,10 +30,12 @@ class Quotes extends Component {
     const widthArr = [60, 60, 60, 60, 60, 60, 60, 60, 60, 60,60];
 
     return (
-      <View style={{flex:1}}>
-        <Row data={tableHead} style={styles.head} textStyle={styles.headText} widthArr={widthArr}/>
+      <Container>
+        <View style={{flexDirection:'row',flex:1}}>
+              <Cell data="Head" style={styles.head} textStyle={styles.headText}/>
+              <Row data={tableHead} style={styles.head} textStyle={styles.headText} widthArr={widthArr}/>
+        </View>
       <Content>
-
         <Table style={styles.table}>
           {/* Left wraper */}
           <TableWraper style={{width: 80}}>
@@ -59,7 +61,7 @@ class Quotes extends Component {
           </ScrollView>
         </Table>
       </Content>
-      </View>
+      </Container>
     )
   }
 }
