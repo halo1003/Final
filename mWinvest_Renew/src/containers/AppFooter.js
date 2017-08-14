@@ -86,10 +86,10 @@ import { Col, Row, Grid } from "react-native-easy-grid";
       </Button>
 
       {/* Button navigate in modal */}
-      <Button onPress= {() => this.changeTab(20)}>
+      <Button onPress= {() => this.changeTab(3)}>
         <Icon name="navigate"
-              style = {{color : ((this.props.bodyNumber == 20 ||this.props.bodyNumber == 21)? 'blue' : 'grey'),fontSize:30}}/>
-        <Text style = {{color : ((this.props.bodyNumber == 20 ||this.props.bodyNumber == 21)? 'blue' : 'grey'),fontSize:8}}>Portfolios</Text>
+              style = {{color : ((this.props.bodyNumber == 3)? 'blue' : 'grey'),fontSize:30}}/>
+        <Text style = {{color : ((this.props.bodyNumber == 3)? 'blue' : 'grey'),fontSize:8}}>Portfolios</Text>
       </Button>
 
       {/* Button more in modal */}
@@ -206,13 +206,6 @@ import { Col, Row, Grid } from "react-native-easy-grid";
               </View>
             </TouchableHighlight>
 
-            <TouchableHighlight style={styles.footerBtn} onPress= {() => this.changeTab(14)}>
-              <View style={styles.footerItem}>
-                <Image style={{height:30,width:30, tintColor:(this.props.bodyNumber == 14? 'blue' : 'grey')}}
-                       source = {require('../images/transaction.png')}/>
-                <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 14? 'blue' : 'grey')}}>Transactions</Text>
-              </View>
-            </TouchableHighlight>
           </Col>
         </Grid>
       </ScrollView>

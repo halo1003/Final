@@ -21,7 +21,7 @@ const navigatorReducer = (state = initialState,action) =>{
         rightHeader: '',
         bodyNumber: 2,
       });
-    //ORDER BOOK
+    //Portfolios
     case 3:
       return Object.assign({},state,{
         leftHeader: '',
