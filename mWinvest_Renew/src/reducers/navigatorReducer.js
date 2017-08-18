@@ -28,18 +28,20 @@ const navigatorReducer = (state = initialState,action) =>{
         rightHeader: '',
         bodyNumber: 3,
       });
+
+    // OderBook
     case 4:
       return Object.assign({},state,{
-        leftHeader: 'New',
-        rightHeader: 'Close',
+        leftHeader: '',
+        rightHeader: '',
         bodyNumber: 4,
       });
-    case 5:
-      return Object.assign({},state,{
-        //leftHeader:'',
-        //rightHeader:'',
-        bodyNumber: 5,
-      });
+       case 5:
+        return Object.assign({},state,{
+          leftHeader: '',
+          rightHeader: 'Settings',
+          bodyNumber: 5,
+        });
 
     case 6:
       return Object.assign({},state,{
@@ -95,6 +97,19 @@ const navigatorReducer = (state = initialState,action) =>{
         // leftHeader: 'New',
         // rightHeader: 'Close',
         bodyNumber: 14,
+      });
+      case 15:
+        return Object.assign({},state,{
+          leftHeader: 'Watchlists',
+          // rightHeader: 'Close',
+          bodyNumber: 14,
+        });
+
+      case 16:
+      return Object.assign({},state,{
+        leftHeader: 'Account',
+        rightHeader: '',
+        bodyNumber: 16,
       });
 
       /*   Segment POSITIONS   */

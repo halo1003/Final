@@ -111,9 +111,12 @@ var styles = StyleSheet.create({
   listItem:{
     flex:1,
     justifyContent: 'space-between',
-    borderWidth: 1,
-    backgroundColor: 'white',
-    flexDirection:'row'
+    borderBottomWidth:1,
+    borderBottomColor:'#F2F2F2',
+    flexDirection:'row',
+    backgroundColor:'white',
+    alignItems:'center',
+
   },
   footerBtn:{
     height:35,

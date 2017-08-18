@@ -1,13 +1,23 @@
 /////////////////////////////Toan'scode ////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
-import {View,Text,TextInput,ScrollView,TouchableHighlight,Image,PanResponder} from 'react-native';
+import {View,Text,TextInput,ScrollView,TouchableOpacity,Image,PanResponder} from 'react-native';
 import {Footer,FooterTab, Container ,Button,Icon, Content} from 'native-base';
 import AppRouter from '../components/AppRouter';
 import {connect} from 'react-redux';
-import { onTouchChangeTab,onTouchTaskmenu} from '../actions';
+import { onTouchChangeTab} from '../actions';
 import Modal from 'react-native-modal';
 import styles from '../styles/styles';
 import { Col, Row, Grid } from "react-native-easy-grid";
+import I18n from '../styles/i18n';
+import Theme,{createThemedComponent} from 'react-native-theming';
+var themes = require('../styles/themes');
+import themedstyles from '../styles/themedStyles';
+
+const ThemedFooterTab = createThemedComponent(FooterTab);
+const ThemedIcon = createThemedComponent(Icon);
+const ThemedGrid = createThemedComponent(Grid);
+const ThemedCol = createThemedComponent(Col);
+const ThemedButton = createThemedComponent(TouchableOpacity);
 
  class AppFooter extends Component {
    constructor(){
@@ -15,13 +25,17 @@ import { Col, Row, Grid } from "react-native-easy-grid";
        this.state = {
          isModalVisible: false,
        };
+       this.switchColor = this.switchColor.bind(this);
   }
-
+  switchColor(selected) {
+    if(selected)
+      return '@buttonColor';
+    return 'grey';
+  }
    setModalVisible(visible) {
     this.setState({isModalVisible: visible});
    }
    changeTab(value){
-     console.log(value);
       this.props.dispatch(onTouchChangeTab(value));
       if(this.state.isModalVisible){
         this.setState({
@@ -50,58 +64,59 @@ import { Col, Row, Grid } from "react-native-easy-grid";
     <Button onPress= {this._hideModal}>
       <Icon active name="more"
             style ={{fontSize:30,color:'grey'}}/>
-      <Text style = {{fontSize:8}}>More</Text>
+      <Text style = {{fontSize:8}}>{I18n.t('More')}</Text>
     </Button>
   )
 
-  _onModalDissaple = () =>(
+  _onModalDisable = () =>(
     <Button onPress= {this._showModal}>
-      <Icon active name="more"
-            style ={{fontSize:30,color:'grey'}}/>
-      <Text style = {{fontSize:8}}>More</Text>
+      <ThemedIcon active name="more"
+            style = {{color : this.switchColor(this.props.bodyNumber > 4  && this.props.bodyNumber < 15),fontSize:30}}/>
+      <Theme.Text style = {{color : this.switchColor(this.props.bodyNumber > 4  && this.props.bodyNumber < 15),fontSize:8}}>{I18n.t('More')}</Theme.Text>
     </Button>
   )
 
   _TabMenupanel = (modal) => (
-    <FooterTab style={{backgroundColor:'white'}}>
+    <ThemedFooterTab style={{backgroundColor:'@backgroundColor'}}>
+
       {/* Button apps in modal */}
       <Button onPress= {() => this.changeTab(1)}>
-        <Icon name="apps"
-              style = {{color : (this.props.bodyNumber == 1 ? 'blue' : 'grey'),fontSize:30}}/>
-        <Text style = {{color : (this.props.bodyNumber == 1 ? 'blue' : 'grey'),fontSize:8}}>Quotes</Text>
+        <ThemedIcon name="apps"
+              style = {{color : this.switchColor(this.props.bodyNumber == 1),fontSize:30}}/>
+        <Theme.Text style = {{color : this.switchColor(this.props.bodyNumber == 1),fontSize:8}}>{I18n.t('Quote')}</Theme.Text>
       </Button>
 
       {/* Button Camera in modal */}
       <Button onPress= {() => this.changeTab(2)}>
-        <Icon name="camera"
-              style = {{color : (this.props.bodyNumber == 2 ? 'blue' : 'grey'),fontSize:30}}/>
-        <Text style = {{color : (this.props.bodyNumber == 2 ? 'blue' : 'grey'),fontSize:8}}>New Order</Text>
+        <ThemedIcon name="camera"
+              style = {{color : this.switchColor(this.props.bodyNumber == 2),fontSize:30}}/>
+        <Theme.Text style = {{color : this.switchColor(this.props.bodyNumber == 2),fontSize:8}}>{I18n.t('NewOrder')}</Theme.Text>
       </Button>
 
       {/* Button book in modal */}
-      <Button onPress= {() => this.changeTab(2)}>
-        <Icon name="book"
-              style = {{color : (this.props.bodyNumber == 4 ? 'blue' : 'grey'),fontSize:30}}/>
-        <Text style = {{color : (this.props.bodyNumber == 4 ? 'blue' : 'grey'),fontSize:7}}>Order Book</Text>
+      <Button onPress= {() => this.changeTab(3)}>
+        <ThemedIcon name="book"
+              style = {{color : this.switchColor(this.props.bodyNumber == 3),fontSize:30}}/>
+        <Theme.Text style = {{color : this.switchColor(this.props.bodyNumber == 3),fontSize:7}}>{I18n.t('OrderBook')}</Theme.Text>
       </Button>
 
       {/* Button navigate in modal */}
-      <Button onPress= {() => this.changeTab(3)}>
-        <Icon name="navigate"
-              style = {{color : ((this.props.bodyNumber == 3)? 'blue' : 'grey'),fontSize:30}}/>
-        <Text style = {{color : ((this.props.bodyNumber == 3)? 'blue' : 'grey'),fontSize:8}}>Portfolios</Text>
+      <Button onPress= {() => this.changeTab(4)}>
+        <ThemedIcon name="navigate"
+              style = {{color : this.switchColor(this.props.bodyNumber == 4),fontSize:30}}/>
+        <Theme.Text style = {{color : this.switchColor(this.props.bodyNumber == 4),fontSize:8}}>{I18n.t('Portfolio')}</Theme.Text>
       </Button>
 
       {/* Button more in modal */}
-      {modal ==='enable' ? this._onModalEnable():this._onModalDissaple()}
-    </FooterTab>
+      {modal ==='enable' ? this._onModalEnable():this._onModalDisable()}
+    </ThemedFooterTab>
   )
 
   _renderModalContent = () => (
     <View style = {{justifyContent: 'flex-end'}}>
-      <View style={{backgroundColor:'white',padding:10}}>
+      <Theme.View style={{backgroundColor:'@backgroundColor',padding:10}}>
         <Text>StatusBar</Text>
-      </View>
+      </Theme.View>
 
       {/* Panel */}
       <View style ={{height:55,backgroundColor:'white',borderTopWidth:0.5,borderTopColor:'#EEEEEE',borderBottomWidth:0.5,borderBottomColor:'#EEEEEE'}}>
@@ -110,104 +125,109 @@ import { Col, Row, Grid } from "react-native-easy-grid";
 
       {/* Grid */}
       <ScrollView style={{backgroundColor:'white'}}>
-        <Grid>
+        <ThemedGrid>
           {/* Column left*/}
-          <Col>
+          <ThemedCol>
             {/* Button Account in modal collumn left */}
-            <TouchableHighlight style={styles.footerBtn} onPress= {() => this.changeTab(5)}>
-              <View style={styles.footerItem}>
-                <Image style={{height:30,width:30, tintColor:(this.props.bodyNumber == 5 ? 'blue' : 'grey')}}
+            <ThemedButton style={styles.footerBtn} onPress= {() => this.changeTab(5)}>
+              <Theme.View style={themedstyles.footerItem}>
+                <Theme.Image style={{height:30,width:30, tintColor:this.switchColor(this.props.bodyNumber == 5)}}
                        source = {require('../images/account.png')}/>
-                <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 5 ? 'blue' : 'grey')}}>Account</Text>
-              </View>
-            </TouchableHighlight>
+                <Theme.Text style={{paddingLeft:10,fontSize:8, color:this.switchColor(this.props.bodyNumber == 5)}}>{I18n.t('Account')}</Theme.Text>
+              </Theme.View>
+            </ThemedButton>
 
             {/* Button Price Alert in modal collumn left */}
-            <TouchableHighlight style={styles.footerBtn} onPress= {() => this.changeTab(6)}>
-              <View style={styles.footerItem}>
-                <Image style={{height:30,width:30, tintColor:(this.props.bodyNumber == 6 ? 'blue' : 'grey')}}
+            <ThemedButton style={styles.footerBtn} onPress= {() => this.changeTab(6)}>
+              <Theme.View style={themedstyles.footerItem}>
+                <Theme.Image style={{height:30,width:30, tintColor:this.switchColor(this.props.bodyNumber == 6)}}
                        source = {require('../images/Pipe.png')}/>
-                <Text style={{fontSize:8,paddingLeft:10, color:(this.props.bodyNumber == 6 ? 'blue' : 'grey')}}>Price Alert</Text>
-              </View>
-            </TouchableHighlight>
+                <Theme.Text style={{fontSize:8,paddingLeft:10, color:this.switchColor(this.props.bodyNumber == 6)}}>{I18n.t('PriceAlert')} </Theme.Text>
+              </Theme.View>
+            </ThemedButton>
 
             {/* Button Markets in modal collumn left */}
-            <TouchableHighlight style={styles.footerBtn} onPress= {() => this.changeTab(7)}>
-              <View style={styles.footerItem}>
-                <Image style={{height:30,width:30, tintColor:(this.props.bodyNumber == 7 ? 'blue' : 'grey')}}
+            <ThemedButton style={styles.footerBtn} onPress= {() => this.changeTab(7)}>
+              <Theme.View style={themedstyles.footerItem}>
+                <Theme.Image style={{height:30,width:30, tintColor:this.switchColor(this.props.bodyNumber == 7)}}
                        source = {require('../images/market.png')}/>
-                <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 7 ? 'blue' : 'grey')}}>Markets</Text>
-              </View>
-            </TouchableHighlight>
+                <Theme.Text style={{paddingLeft:10,fontSize:8, color:this.switchColor(this.props.bodyNumber == 7)}}>{I18n.t('Markets')}</Theme.Text>
+              </Theme.View>
+            </ThemedButton>
 
             {/* Button Passwords in modal collumn left */}
-            <TouchableHighlight style={styles.footerBtn} onPress= {() => this.changeTab(8)}>
-              <View style={styles.footerItem}>
-                <Image style={{height:30,width:30, tintColor:(this.props.bodyNumber == 8 ? 'blue' : 'grey')}}
+            <ThemedButton style={styles.footerBtn} onPress= {() => this.changeTab(8)}>
+              <Theme.View style={themedstyles.footerItem}>
+                <Theme.Image style={{height:30,width:30, tintColor:this.switchColor(this.props.bodyNumber == 8)}}
                        source = {require('../images/lock.png')}/>
-                <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 8 ? 'blue' : 'grey')}}>Passwords</Text>
-              </View>
-            </TouchableHighlight>
+                <Theme.Text style={{paddingLeft:10,fontSize:8, color:this.switchColor(this.props.bodyNumber == 8)}}>{I18n.t('Passwords')}</Theme.Text>
+              </Theme.View>
+            </ThemedButton>
 
             {/* Button Contacts in modal collumn left */}
-            <TouchableHighlight style={styles.footerBtn} onPress= {() => this.changeTab(9)}>
-              <View style={styles.footerItem}>
-                <Image style={{height:30,width:30, tintColor:(this.props.bodyNumber == 9 ? 'blue' : 'grey')}}
+            <ThemedButton style={styles.footerBtn} onPress= {() => this.changeTab(9)}>
+              <Theme.View style={themedstyles.footerItem}>
+                <Theme.Image style={{height:30,width:30, tintColor:this.switchColor(this.props.bodyNumber == 9)}}
                        source = {require('../images/contacts.png')}/>
-                <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 9 ? 'blue' : 'grey')}}>Contacts</Text>
-              </View>
-            </TouchableHighlight>
-          </Col>
+                <Theme.Text style={{paddingLeft:10,fontSize:8, color:this.switchColor(this.props.bodyNumber == 9)}}>{I18n.t('Contacts')}</Theme.Text>
+              </Theme.View>
+            </ThemedButton>
+
+{/*//////////////////////////////////// Additional Button left /////////////////////////////////////////*/}
+
+          </ThemedCol>
 
           {/* Column Right */}
-          <Col>
+          <ThemedCol>
             {/* Button Help in modal collumn right */}
-            <TouchableHighlight style={styles.footerBtn} onPress= {() => this.changeTab(10)}>
-              <View style={styles.footerItem}>
-                <Image style={{height:30,width:30, tintColor:(this.props.bodyNumber == 10? 'blue' : 'grey')}}
+            <ThemedButton style={styles.footerBtn} onPress= {() => this.changeTab(10)}>
+              <Theme.View style={themedstyles.footerItem}>
+                <Theme.Image style={{height:30,width:30, tintColor:this.switchColor(this.props.bodyNumber == 10)}}
                        source = {require('../images/help.png')}/>
-                <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 10 ? 'blue' : 'grey')}}>Help</Text>
-              </View>
-            </TouchableHighlight>
+                <Theme.Text style={{paddingLeft:10,fontSize:8, color:this.switchColor(this.props.bodyNumber == 10)}}>{I18n.t('Help')}</Theme.Text>
+              </Theme.View>
+            </ThemedButton>
 
             {/* Button Messages in modal collumn right */}
-            <TouchableHighlight style={styles.footerBtn} onPress= {() => this.changeTab(11)}>
-              <View style={styles.footerItem}>
-                <Image style={{height:30,width:30, tintColor:(this.props.bodyNumber == 11? 'blue' : 'grey')}}
+            <ThemedButton style={styles.footerBtn} onPress= {() => this.changeTab(11)}>
+              <Theme.View style={themedstyles.footerItem}>
+                <Theme.Image style={{height:30,width:30, tintColor:this.switchColor(this.props.bodyNumber == 11)}}
                        source = {require('../images/message.png')}/>
-                <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 11? 'blue' : 'grey')}}>Messages</Text>
-              </View>
-            </TouchableHighlight>
+                <Theme.Text style={{paddingLeft:10,fontSize:8, color:this.switchColor(this.props.bodyNumber == 11)}}>{I18n.t('Messages')}</Theme.Text>
+              </Theme.View>
+            </ThemedButton>
 
             {/* Button Fund Transfer in modal collumn right */}
-            <TouchableHighlight style={styles.footerBtn} onPress= {() => this.changeTab(12)}>
-              <View style={styles.footerItem}>
-                <Image style={{height:30,width:30, tintColor:(this.props.bodyNumber == 12? 'blue' : 'grey')}}
+            <ThemedButton style={themedstyles.footerBtn} onPress= {() => this.changeTab(12)}>
+              <Theme.View style={themedstyles.footerItem}>
+                <Theme.Image style={{height:30,width:30, tintColor:this.switchColor(this.props.bodyNumber == 12)}}
                        source = {require('../images/fundtranfer.png')}/>
-                <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 12? 'blue' : 'grey')}}>Fund Transfer</Text>
-              </View>
-            </TouchableHighlight>
+                <Theme.Text style={{paddingLeft:10,fontSize:8, color:this.switchColor(this.props.bodyNumber == 12)}}>{I18n.t('FundTransfer')}</Theme.Text>
+              </Theme.View>
+            </ThemedButton>
 
             {/* Button Services in modal collumn right */}
-            <TouchableHighlight style={styles.footerBtn} onPress= {() => this.changeTab(13)}>
-              <View style={styles.footerItem}>
-                <Image style={{height:30,width:30, tintColor:(this.props.bodyNumber == 13? 'blue' : 'grey')}}
+            <ThemedButton style={styles.footerBtn} onPress= {() => this.changeTab(13)}>
+              <Theme.View style={themedstyles.footerItem}>
+                <Theme.Image style={{height:30,width:30, tintColor:this.switchColor(this.props.bodyNumber == 13)}}
                        source = {require('../images/person.png')}/>
-                <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 13? 'blue' : 'grey')}}>Services</Text>
-              </View>
-            </TouchableHighlight>
+                <Theme.Text style={{paddingLeft:10,fontSize:8, color:this.switchColor(this.props.bodyNumber == 13)}}>{I18n.t('Services')}</Theme.Text>
+              </Theme.View>
+            </ThemedButton>
 
             {/* Button Transactions in modal collumn right */}
-            <TouchableHighlight style={styles.footerBtn} onPress= {() => this.changeTab(14)}>
-              <View style={styles.footerItem}>
-                <Image style={{height:30,width:30, tintColor:(this.props.bodyNumber == 14? 'blue' : 'grey')}}
+            <ThemedButton style={styles.footerBtn} onPress= {() => this.changeTab(14)}>
+              <Theme.View style={themedstyles.footerItem}>
+                <Theme.Image style={{height:30,width:30, tintColor:this.switchColor(this.props.bodyNumber == 14)}}
                        source = {require('../images/transaction.png')}/>
-                <Text style={{paddingLeft:10,fontSize:8, color:(this.props.bodyNumber == 14? 'blue' : 'grey')}}>Transactions</Text>
-              </View>
-            </TouchableHighlight>
+                <Theme.Text style={{paddingLeft:10,fontSize:8, color:this.switchColor(this.props.bodyNumber == 14)}}>{I18n.t('Transactions')}</Theme.Text>
+              </Theme.View>
+            </ThemedButton>
 
-          </Col>
-        </Grid>
+
+{/*///////////////////////////////// Additional button right /////////////////////////////////////////////////*/}
+          </ThemedCol>
+        </ThemedGrid>
       </ScrollView>
     </View>
   );
@@ -216,8 +236,7 @@ render() {
   return (
     <Footer>
       <Modal isVisible={this.state.isModalVisible} style={{margin:0,justifyContent:'flex-end'}}
-        {...this.panResponder.panHandlers}
-      >
+        {...this.panResponder.panHandlers}>
         {this._renderModalContent()}
       </Modal>
 
@@ -230,6 +249,7 @@ render() {
 const mapStateToProps = (state,ownProps) =>{
   return{
     bodyNumber: state.navigatorReducer.bodyNumber,
+    reload: state.reloadReducer.reload
   }
 }
 export default connect(mapStateToProps)(AppFooter);

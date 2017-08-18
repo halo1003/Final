@@ -23,7 +23,7 @@ export default class Portfolios extends Component {
         {/*--------------------ACOUNT BALANCE TASK--------------------------*/}
 
         <View>
-          <View style={{flexDirection:'row',justifyContent:'space-between',borderBottomWidth:1,padding:10}}>
+          <View style={{flexDirection:'row',justifyContent:'space-between',borderBottomWidth:0.5,borderBottomColor:'grey',padding:5}}>
             <View style={{flexDirection:'row',alignItems:'center'}}>
                 <Image style={{height:20,width:20}}
                   source = {require('../images/settings.png')}/>
@@ -46,7 +46,7 @@ export default class Portfolios extends Component {
                 {key: 'Floating P/L',number:'29,658.29'},
                 {key: 'Trading P/L',number:'34,788.11'}]
           }
-            renderItem={({item}) => <View style={{flexDirection:'row',justifyContent:'space-between',borderBottomWidth:1,padding:5}}>
+            renderItem={({item}) => <View style={{flexDirection:'row',justifyContent:'space-between',borderBottomWidth:0.5,borderBottomColor:'grey',padding:5}}>
                                     <Text>{item.key}</Text>
                                     <Text>{item.number}</Text>
                                     </View>
@@ -59,7 +59,7 @@ export default class Portfolios extends Component {
         {/*--------------------POSITONS TASK--------------------------*/}
 
         <View style={{paddingTop:10}}>
-            <Text style={{fontSize:20,borderBottomWidth:1}}> Positions </Text>
+            <Text style={{fontSize:20,borderBottomWidth:0.5,borderBottomColor:'grey'}}> Positions </Text>
             <FlatList
                 data=
                 {
@@ -67,7 +67,7 @@ export default class Portfolios extends Component {
                     {key1: 'Portfolio Value:',value:'50,547,113.00'}
                   ]
                 }
-              renderItem = {({item}) =><View style={{flexDirection:'row',justifyContent:'space-between',borderBottomWidth:1,padding:5}}>
+              renderItem = {({item}) =><View style={{flexDirection:'row',justifyContent:'space-between',borderBottomWidth:0.5,borderBottomColor:'grey',padding:5}}>
                                             <Text>{item.key1}</Text>
                                             <Text>{item.value}</Text>
                                           </View>
@@ -85,7 +85,7 @@ export default class Portfolios extends Component {
                 sections={sectionData}
                 renderItem =
                 {
-                  ({item}) =><View style={{flexDirection:'row',alignItems:'center',borderTopWidth:0.5,borderBottomWidth:0.5,padding:3}}>
+                  ({item}) =><View style={{flexDirection:'row',alignItems:'center',borderBottomWidth:0.5,borderBottomColor:'grey',padding:3}}>
                               <View style={{flex:1}}>
                                 <View style={{flexDirection:'row',justifyContent:'space-between'}}>
                                     <Text>{item.id}</Text>

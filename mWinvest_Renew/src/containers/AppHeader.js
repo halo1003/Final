@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View,Text,TextInput,ScrollView } from 'react-native';
+import { View,Text,TextInput,ScrollView,StyleSheet,Dimensions } from 'react-native';
 import {Header,Left,Button,Icon,Body,Right,Title} from 'native-base';
 import {onTouchChangeTab} from '../actions';
 import {connect} from 'react-redux';
@@ -12,42 +12,56 @@ class AppHeader extends Component {
   onLeftHeaderTouch(){
     switch (this.props.bodyNumber) {
       case 1:
-        this.props.dispatch(onTouchChangeTab(4));
+        this.props.dispatch(onTouchChangeTab(15));
+        break;
+      case 16:
+        this.props.dispatch(onTouchChangeTab(5));
         break;
       default:
 
     }
-  }
-  onRightHeaderTouch(){
 
+    }
+  onRightHeaderTouch(){
+    switch (this.props.bodyNumber) {
+    case 5:
+      this.props.dispatch(onTouchChangeTab(16));
+      break;
+    default:
+  }
   }
   render() {
     return (
-      <Header noShadow>
-       <Left>
+      <Header noShadow style={{borderBottomColor:'#87cefa',borderBottomWidth:2,backgroundColor:'white'}}>
+      <View style={{justifyContent:'space-between',flexDirection:'row',alignItems:'center',width:Dimensions.get('window').width}}>
+       <View>
          <Button transparent
           onPress = {this.onLeftHeaderTouch}>
-           <Text>
+           <Text style={{color:'#3d7fc5'}}>
             {this.props.leftHeader}
            </Text>
          </Button>
-       </Left>
-       <Body>
-         <Title>
-           {this.props.bodyNumber == 1 ? 'Quotes'
+       </View>
+       <View>
+         <Title style={{color:'black'}}>
+           { this.props.bodyNumber == 1 ? 'Quotes'
            : this.props.bodyNumber == 2 ? 'Orders'
-           : this.props.bodyNumber == 3 ?'Portfolios'
-           :'Watchlists'}
+           : this.props.bodyNumber == 3 ? 'OderBook'
+           : this.props.bodyNumber == 4 ? 'Portfolios'
+           : this.props.bodyNumber == 5 ? 'Watchlists'
+           :'Watchlists'
+         }
          </Title>
-       </Body>
-       <Right>
+       </View>
+       <View>
          <Button transparent
           onPress = {this.onRightHeaderTouch}>
-           <Text>
+           <Text style={{color:'#3d7fc5'}}>
               {this.props.rightHeader}
            </Text>
          </Button>
-       </Right>
+       </View>
+       </View>
      </Header>
     );
   }
@@ -57,6 +71,7 @@ const mapStateToProps = (state,ownProps) =>{
     leftHeader: state.navigatorReducer.leftHeader,
     rightHeader: state.navigatorReducer.rightHeader,
     bodyNumber: state.navigatorReducer.bodyNumber,
+    reload : state.reloadReducer.reload
   }
 }
 

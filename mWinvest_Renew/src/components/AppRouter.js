@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Container } from 'native-base';
-
-import AppBody from '../containers/AppBody';
 import AppHeader from '../containers/AppHeader';
 import AppFooter from '../containers/AppFooter';
 import Portfolios from './Portfolios';
 import Quotes from './Quotes';
 import Order from './Order';
+import Account from './Account';
 import Watchlists from './Watchlists';
+import Settings from './Settings';
 import { connect } from 'react-redux';
 
 
@@ -20,10 +20,13 @@ import { connect } from 'react-redux';
     return (
       <Container>
         <AppHeader/>
-          {  this.props.bodyNumber == 1 ? <Quotes/>
-            : this.props.bodyNumber == 2 ? <Order/>
-            : this.props.bodyNumber == 3 ? <Portfolios/>
-            : <Watchlists/>}
+        { this.props.bodyNumber == 1 ? <Quotes/>
+          : this.props.bodyNumber == 2 ? <Order/>
+          : this.props.bodyNumber == 3 ? <OrderBook/>
+          : this.props.bodyNumber == 4 ? <Portfolios/>
+          : this.props.bodyNumber == 5 ? <Account/>
+          : this.props.bodyNumber == 16 ? <Settings/>
+          : <Watchlists/>}
         <AppFooter/>
       </Container>
     );
