@@ -28,6 +28,7 @@ import { connect } from 'react-redux';
           : this.props.bodyNumber == 4 ? <Portfolios/>
           : this.props.bodyNumber == 5 ? <Account/>
           : this.props.bodyNumber == 16 ? <Settings/>
+          :this.props.bodyNumber == 17 ? <QuoteSheet/>
           : <Watchlists/>}
         <AppFooter/>
       </Container>

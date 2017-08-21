@@ -112,6 +112,13 @@ const navigatorReducer = (state = initialState,action) =>{
         bodyNumber: 16,
       });
 
+      case 17:
+      return Object.assign({},state,{
+        leftHeader: '',
+        rightHeader: '',
+        bodyNumber: 17,
+      });
+
       /*   Segment POSITIONS   */
       case 20:
         return Object.assign({},state,{

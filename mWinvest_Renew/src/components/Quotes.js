@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Content } from 'native-base';
-import { View, StyleSheet, ScrollView, Animated, Text} from "react-native";
+import { View, StyleSheet, ScrollView, Animated, Text,TouchableOpacity, ToastAndroid} from "react-native";
 import { Table, TableWraper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
+import QuoteSheet from './QuoteSheet';
+import {connect} from 'react-redux';
+import { onTouchChangeTab} from '../actions';
 
 class Quotes extends Component {
 
@@ -11,6 +14,10 @@ class Quotes extends Component {
     this.pageScrollListener = Animated.event(
       [{nativeEvent: {contentOffset: {y: this.pageScrollPosition }}}]
     );
+  }
+  click(key){
+    ToastAndroid.show(key.toString(),ToastAndroid.SHORT);
+    this.props.dispatch(onTouchChangeTab(17));
   }
   componentDidMount() {
     // when the scroll position of the currently visible
@@ -33,7 +40,7 @@ class Quotes extends Component {
     const tableTitle = ['Title', 'Title2', 'Tilte3', 'Title4', 'Title5',
                         'KIKI','Title', 'Title2', 'Tilte3', 'Title4',
                         'Title5','kiki','Title', 'Title2', 'Tilte3',
-                        'Title4', 'Title5','KIKI',];
+                        'Title4', 'Title5','KIKI'];
     const tableData = [
       [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
       ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j','kiki'],
@@ -63,17 +70,21 @@ class Quotes extends Component {
       <View style={{flex: 1}}>
         <Table style={styles.table}>
           <TableWraper style={{width: 80}}>
-            <View style=
-            {{flex:1}} onPress={()=>this.props.dispatch(onTouchChangeTab(2))}><Cell data="Head" style={{flex: 1, backgroundColor: '#333'}} textStyle={styles.headText}/>
-            </View>
+            <Cell data="Head" style={{flex: 1, backgroundColor: '#333'}} textStyle={styles.headText}/>
             <TableWraper style={{flex : 8}}>
               <ScrollView
                 ref = {(instance) => this.leftScroll = instance}
                 scrollEventThrottle={50}
                 onScroll= {this.pageScrollListener}
-                showsVerticalScrollIndicator = {false}
+                showsVerticalScrollIndicator = {true}
               >
-                <Col data = {tableTitle} heightArr={heightArr}/>
+                {
+                  tableTitle.map((data1, i) => (
+                    <TouchableOpacity style={{height: 30}} onPress= {() => this.click(i)}>
+                      <Cell key={i} data={data1}  style={{height: 30}} widthArr={widthArr} textStyle={styles.listText}/>
+                    </TouchableOpacity>
+                  ))
+                }
               </ScrollView>
             </TableWraper>
           </TableWraper>
@@ -88,7 +99,15 @@ class Quotes extends Component {
                   onScroll= {this.pageScrollListener}
                   showsVerticalScrollIndicator = {true}
                 >
-                  <Rows data={tableData} style={{height: 30}} widthArr={widthArr}/>
+
+                  {
+                    tableData.map((data2, i) => (
+                      <TouchableOpacity style={{height: 30}} onPress= {() => this.click(i)}>
+                        <Row key={i} data={data2}  style={{height: 30}} widthArr={widthArr} textStyle={styles.listText}/>
+                      </TouchableOpacity>
+                    ))
+                  }
+                  {/*s<Rows data={tableData} style={{height: 30}} widthArr={widthArr}/>*/}
                 </ScrollView>
               </TableWraper>
             </TableWraper>
@@ -108,4 +127,4 @@ const styles = StyleSheet.create({
   listText: { textAlign: 'right', marginRight: 6 }
 })
 
-export default Quotes
+export default connect()(Quotes);
