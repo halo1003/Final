@@ -14,5 +14,7 @@ export default{
   FundTransfer : 'Fund Transfer',
   Services : 'Services',
   Transactions : 'Transactions',
-  Settings : 'Settings'
+  Settings : 'Settings',
+  Watchlists: 'Watchlists',
+  '':'',
 }

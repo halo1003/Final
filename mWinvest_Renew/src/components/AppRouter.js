@@ -4,8 +4,10 @@ import AppHeader from '../containers/AppHeader';
 import AppFooter from '../containers/AppFooter';
 import Portfolios from './Portfolios';
 import Quotes from './Quotes';
+import QuoteSheet from './QuoteSheet'
 import Order from './Order';
 import Account from './Account';
+import OrderBook from './OrderBook';
 import Watchlists from './Watchlists';
 import Settings from './Settings';
 import { connect } from 'react-redux';

@@ -3,6 +3,14 @@ import { View,Text,TextInput,ScrollView,StyleSheet,Dimensions } from 'react-nati
 import {Header,Left,Button,Icon,Body,Right,Title} from 'native-base';
 import {onTouchChangeTab} from '../actions';
 import {connect} from 'react-redux';
+import I18n from '../styles/i18n';
+import Theme,{createThemedComponent} from 'react-native-theming';
+var themes = require('../styles/themes');
+import themedstyles from '../styles/themedStyles';
+
+const ThemedHeader = createThemedComponent(Header);
+const ThemedTitle = createThemedComponent(Title);
+
 class AppHeader extends Component {
   constructor(props){
     super(props);
@@ -32,37 +40,38 @@ class AppHeader extends Component {
   }
   render() {
     return (
-      <Header noShadow style={{borderBottomColor:'#87cefa',borderBottomWidth:2,backgroundColor:'white'}}>
+      <ThemedHeader noShadow style={{borderBottomColor:'#87cefa',borderBottomWidth:2,backgroundColor:'@backgroundColor'}}>
       <View style={{justifyContent:'space-between',flexDirection:'row',alignItems:'center',width:Dimensions.get('window').width}}>
        <View>
          <Button transparent
           onPress = {this.onLeftHeaderTouch}>
-           <Text style={{color:'#3d7fc5'}}>
-            {this.props.leftHeader}
-           </Text>
+           <Theme.Text style={{color:'#3d7fc5'}}>
+            {I18n.t(this.props.leftHeader)}
+           </Theme.Text>
          </Button>
        </View>
        <View>
-         <Title style={{color:'black'}}>
-           { this.props.bodyNumber == 1 ? 'Quotes'
-           : this.props.bodyNumber == 2 ? 'Orders'
-           : this.props.bodyNumber == 3 ? 'OderBook'
-           : this.props.bodyNumber == 4 ? 'Portfolios'
-           : this.props.bodyNumber == 5 ? 'Watchlists'
+         <ThemedTitle style={{color:'@textColor'}}>
+           { this.props.bodyNumber == 1 ? I18n.t('Quote')
+           : this.props.bodyNumber == 2 ? I18n.t('NewOrder')
+           : this.props.bodyNumber == 3 ? I18n.t('OrderBook')
+           : this.props.bodyNumber == 4 ? I18n.t('Portfolio')
+           : this.props.bodyNumber == 5 ? I18n.t('Account')
+           : this.props.bodyNumber == 16 ? I18n.t('Settings')
            :'Watchlists'
          }
-         </Title>
+         </ThemedTitle>
        </View>
        <View>
          <Button transparent
           onPress = {this.onRightHeaderTouch}>
            <Text style={{color:'#3d7fc5'}}>
-              {this.props.rightHeader}
+              {I18n.t(this.props.rightHeader)}
            </Text>
          </Button>
        </View>
        </View>
-     </Header>
+     </ThemedHeader>
     );
   }
 }

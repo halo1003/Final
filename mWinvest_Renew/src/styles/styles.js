@@ -1,74 +1,46 @@
 const React = require('react-native')
-const {StyleSheet} = React
+const {
+  StyleSheet
+} = React
 const constants = {
   actionColor: '#24CE84'
 };
 var styles = StyleSheet.create({
 
-  textprice:{
-    borderWidth:1,
-    flexGrow:20
+  textprice: {
+    borderWidth: 1,
+    flexGrow: 20
   },
-
   order: {
     flex: 1,
-    borderWidth: 1,
-    backgroundColor:"yellow",
-
-  },
-  order1:{
+    },
+  order1: {
     flex: 1,
-    borderWidth:1,
-    flexDirection:'row',
-    justifyContent:'space-between',
-    padding:20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 20,
   },
-
-  grid:{
+  grid: {
     flex: 3
   },
-
-  container:{
-    flex:1,
-  // backgroundColor: 'yellow',
-    // padding:50,
-
-  },
-  box:{
-      flex:1,
-      marginHorizontal: 5,
-      padding:30,
-  },
-  buttonSellBuy:{
-      flex:1,
-      marginHorizontal: 5,
-      padding:30,
-  },
-  TextSymbol:{
-      flex:1,
-      marginHorizontal: 5,
-
-  },
-
-  listview: {
+  container: {
     flex: 1,
   },
-  li: {
-    backgroundColor: '#fff',
-    borderBottomColor: '#eee',
-    borderColor: 'transparent',
-    borderWidth: 1,
-    paddingLeft: 16,
-    paddingTop: 14,
-    paddingBottom: 16,
+  box: {
+    flex: 1,
+    marginHorizontal: 5,
+    padding: 30,
   },
-  liContainer: {
-    flex: 2,
+  buttonSellBuy: {
+    flex: 1,
+    marginHorizontal: 5,
+    padding: 30,
   },
-  liText: {
-    color: '#333',
-    fontSize: 16,
+  TextSymbol: {
+    flex: 1,
+    marginHorizontal: 5,
   },
+
   navbar: {
     alignItems: 'center',
     backgroundColor: '#fff',
@@ -100,37 +72,32 @@ var styles = StyleSheet.create({
     backgroundColor: constants.actionColor,
     borderColor: 'transparent',
     borderWidth: 1,
-    flex:1,
-    width:100
+    flex: 1,
+    width: 100
   },
-  orderButton:{
-    flex:1,
+  orderButton: {
+    flex: 1,
     alignItems: 'center',
-    flexDirection:'row'
+    flexDirection: 'row'
   },
-  listItem:{
-    flex:1,
+  listItem: {
+    flex: 1,
     justifyContent: 'space-between',
-    borderBottomWidth:1,
-    borderBottomColor:'#F2F2F2',
-    flexDirection:'row',
-    backgroundColor:'white',
-    alignItems:'center',
-
+    borderBottomWidth: 1,
+    borderBottomColor: '#F2F2F2',
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    alignItems: 'center',
   },
-  footerBtn:{
-    height:35,
-    backgroundColor:'white',
-    borderWidth:0.5,
-    borderColor:'#EEEEEE',
+  footerBtn: {
+    // height: 35,
+    backgroundColor: 'white',
+    borderTopWidth:1,
+    borderRightWidth: 1,
+    borderColor: '#EEEEEE',
     alignItems: 'stretch',
-    justifyContent:'center',
+    justifyContent: 'center',
   },
-  footerItem:{
-    alignItems:'center',
-    flexDirection:'row',
-    padding:20
-  }
 })
 
 module.exports = styles

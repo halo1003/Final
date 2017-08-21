@@ -17,14 +17,6 @@ var themedstyles = createStyle({
     color: '#888',
     marginBottom: 5,
   },
-  footerBtn:{
-    height:35,
-    backgroundColor:'white',
-    borderWidth:0.5,
-    borderColor:'#EEEEEE',
-    alignItems: 'stretch',
-    justifyContent:'center',
-  },
   footerItem:{
     alignItems:'center',
     flexDirection:'row',

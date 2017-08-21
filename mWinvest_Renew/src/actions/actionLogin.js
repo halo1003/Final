@@ -1,5 +1,6 @@
 import { SET_USER_NAME, SET_PASS_WORD, USET_START_AUTHORIZING, USER_AUTHORIZED, USER_NO_EXIST } from './types'
 import firebase from '../API/api';
+import Data from '../components/Data';
 
 export const setUsername = (name) =>{
   return{
@@ -38,10 +39,16 @@ export const login = (username,password) =>{
     dispatch(startAuthorizing());
 
       firebase.database().ref('/mUser').on('value', (snap)=>{
+        islogin=false;
         snap.forEach((data)=>{
           if(data.val().Username == username && data.val().Password == password)
+            Data.setID(username);
+            islogin = true;
             dispatch(userAuthorized());
+
         })
+        if (islogin == false)
+          dispatch(userNoExist());
       })
   }
 }

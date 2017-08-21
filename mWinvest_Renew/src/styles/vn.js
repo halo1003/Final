@@ -14,5 +14,7 @@ export default{
   FundTransfer : 'Chuyển Khoản',
   Services : 'Dịch Vụ',
   Transactions : 'Giao Dịch',
-  Settings : 'Cài Đặt'
+  Settings : 'Cài Đặt',
+  Watchlists : 'Danh sách theo dõi',
+  '': '',
 }

@@ -1,41 +1,43 @@
 import React, { Component } from 'react';
-import {View,StyleSheet } from 'react-native';
-import Positions from '../components/Positions';
-import AccountBalance from '../components/AccountBalance';
+import {View,StyleSheet,TouchableOpacity,Dimensions } from 'react-native';
 import style from '../styles/styles';
+import Theme,{ createTheme, createStyle,  createThemedComponent} from 'react-native-theming';
+var themes = require('../styles/themes');
+import themedstyles from '../styles/themedStyles';
+import { reload} from '../actions';
+import I18n from '../styles/i18n';
 import {connect} from 'react-redux';
-import { onTouchChangeTab} from '../actions';
-import { Container,Button,Thumbnail,Header,Segment, Content, List, ListItem, Text, Icon, Left, Body, Right, Switch } from 'native-base';
 
+const Button = createThemedComponent(TouchableOpacity);
  class Segments extends Component {
-  componentWillUnmount(){
-    console.log('Unmount');
-  }
 
-  changeTab(value){
-    this.props.dispatch(onTouchChangeTab(value));
-  }
+   changeLanguage(val){
+     I18n.locale = val;
+     this.props.dispatch(reload(this.props.reload));
+   }
   render() {
     return (
-        <Segment style={{backgroundColor:'white'}}>
-          <Button onPress={()=>this.changeTab(20)}
-              style={{backgroundColor:(this.props.bodyNumber == 20 ? 'blue' : 'white'),borderColor:'blue'}}
-          >
-            <Text style={{color : (this.props.bodyNumber == 20 ? 'white' : 'blue')}}>Positions</Text>
+      <Theme.View>
+        <Theme.View style={{left:10}}><Theme.Text style={{color:'@textColor'}}>Language</Theme.Text></Theme.View>
+        <Theme.View style = {{flexDirection: 'row', justifyContent: 'center', alignItems: 'center',width:Dimensions.get('window').width}}>
+          <Button style={[themedstyles.button, themedstyles.genericButton]} onPress= {() => this.changeLanguage('en')}>
+            <Theme.Text style={[themedstyles.buttonText, { color: '@buttonText' }]}>
+              English
+            </Theme.Text>
           </Button>
-
-          <Button onPress={()=>this.changeTab(21)}
-              style={{backgroundColor:(this.props.bodyNumber == 21? 'blue' : 'white'),borderColor:'blue'}}
-           >
-            <Text style={{color : (this.props.bodyNumber == 21 ? 'white' : 'blue')}}>Account Balance</Text>
+          <Button style={[themedstyles.button, themedstyles.genericButton]} onPress= {() => this.changeLanguage('vn')}>
+            <Theme.Text style={[themedstyles.buttonText, { color: '@buttonText' }]}>
+              Vietnamese
+            </Theme.Text>
           </Button>
-        </Segment>
+        </Theme.View>
+      </Theme.View>
     );
   }
 }
 const mapStateToProps = (state,ownProps) =>{
   return{
-    bodyNumber: state.navigatorReducer.bodyNumber,
+    reload: state.reloadReducer.reload
   }
 }
 export default connect(mapStateToProps)(Segments);

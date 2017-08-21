@@ -63,7 +63,9 @@ class Quotes extends Component {
       <View style={{flex: 1}}>
         <Table style={styles.table}>
           <TableWraper style={{width: 80}}>
-            <Cell data="Head" style={{flex: 1, backgroundColor: '#333'}} textStyle={styles.headText}/>
+            <View style=
+            {{flex:1}} onPress={()=>this.props.dispatch(onTouchChangeTab(2))}><Cell data="Head" style={{flex: 1, backgroundColor: '#333'}} textStyle={styles.headText}/>
+            </View>
             <TableWraper style={{flex : 8}}>
               <ScrollView
                 ref = {(instance) => this.leftScroll = instance}

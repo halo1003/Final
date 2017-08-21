@@ -11,7 +11,7 @@ class App extends Component{
   render() {
     return(
       <View style = {styles.container}>
-        {this.props.authorized ? <AppRouter/> : <AppRouter/>}
+        {this.props.authorized ? <AppRouter/> : <Login/>}
       </View>
     );
   }

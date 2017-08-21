@@ -35,13 +35,16 @@ import { Container,
       };
       this.renderRow = this.renderRow.bind(this);
     }
-    deleteRow(secId,rowId, rowMap) {
+    deleteRowdata1(secId,rowId, rowMap) {
       rowMap[`${secId}${rowId}`].props.closeRow();
       const newData = [...this.state.listViewData];
-      const newData2 = [...this.state.listViewBrowseData];
       newData.splice(rowId, 1);
-      newData2.splice(rowId, 1);
       this.setState({ listViewData: newData });
+    }
+    deleteRowdata2(secId,rowId, rowMap) {
+      rowMap[`${secId}${rowId}`].props.closeRow();
+      const newData2 = [...this.state.listViewBrowseData];
+      newData2.splice(rowId, 1);
       this.setState({ listViewBrowseData: newData2 });
     }
     renderRow(rowData){
@@ -54,12 +57,6 @@ import { Container,
                  source = {require('../images/next.png')}/>
         </View>
       )
-    }
-    rightHiddenRow(data, secId, rowId, rowMap){
-      <Button full danger
-        onPress={_ => this.deleteRow(secId, rowId, rowMap)}>
-        <Text>Delete</Text>
-      </Button>
     }
     render() {
       return(
@@ -76,7 +73,7 @@ import { Container,
                   renderLeftHiddenRow={data =>
                     <View></View>}
                   renderRightHiddenRow={(data, secId, rowId, rowMap) =>
-                    <Button full danger onPress={_ => this.deleteRow(secId, rowId, rowMap)}>
+                    <Button full danger onPress={_ => this.deleteRowdata1(secId, rowId, rowMap)}>
                       <Text>Delete</Text>
                     </Button>}
                   rightOpenValue={-85}
@@ -92,7 +89,7 @@ import { Container,
                   renderLeftHiddenRow={data =>
                     <View></View>}
                   renderRightHiddenRow={(data, secId, rowId2, rowMap) =>
-                    <Button full danger onPress={_ => this.deleteRow(secId, rowId2, rowMap)}>
+                    <Button full danger onPress={_ => this.deleteRowdata2(secId, rowId2, rowMap)}>
                       <Text>Delete</Text>
                     </Button>}
                   rightOpenValue={-85}

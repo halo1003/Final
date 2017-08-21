@@ -35,7 +35,10 @@ const userReducer = (state = initialState,action) =>{
 
     case USER_NO_EXIST:
       ToastAndroid.show('Wrong Username or password',ToastAndroid.SHORT);
-      return state;
+      return Object.assign({},state,{
+        authorized: false,
+        authorizing: false
+      });
 
     default:
       return state;
