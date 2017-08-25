@@ -24,7 +24,7 @@ import OrderQueued from '../containers/OrderQueued';
     return (
       <Container>
         <AppHeader/>
-        { this.props.bodyNumber == 1 ? <Quotes/>
+        { this.props.bodyNumber == 1 ? <QuoteSheet/>
           : this.props.bodyNumber == 2 ? <Order/>
           : this.props.bodyNumber == 3 ? <OrderBook/>
           : this.props.bodyNumber == 4 ? <Portfolios/>
