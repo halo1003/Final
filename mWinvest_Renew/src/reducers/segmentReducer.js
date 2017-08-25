@@ -9,15 +9,15 @@ const segmentReducer = (state = initialState,action) =>{
 
     case 'Queued':
       return Object.assign({},state,{
-        segmentName: 'Queued',
+        segmentName_Orderbook: 'Queued',
       });
     case 'Fully_Filled':
       return Object.assign({},state,{
-        segmentName: 'Fully_Filled',
+        segmentName_Orderbook: 'Fully_Filled',
       });
     case 'Cancelled':
       return Object.assign({},state,{
-        segmentName: 'Cancelled',
+        segmentName_Orderbook: 'Cancelled',
       });
     case 'All':
       return Object.assign({},state,{

@@ -57,7 +57,7 @@ class AppHeader extends Component {
            : this.props.bodyNumber == 3 ? I18n.t('OrderBook')
            : this.props.bodyNumber == 4 ? I18n.t('Portfolio')
            : this.props.bodyNumber == 5 ? I18n.t('Account')
-           : this.props.bodyNumber == 6 ? I18n.t('Price Alert')
+           : this.props.bodyNumber == 6 ? I18n.t('PriceAlert')
            : this.props.bodyNumber == 16 ? I18n.t('Settings')
            :'Watchlists'
          }

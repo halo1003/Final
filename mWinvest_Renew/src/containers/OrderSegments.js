@@ -32,22 +32,22 @@ class OrderSegments extends Component {
     return (
       <Content>
           <View style={styles.ordersegment}>
-              <TouchableHighlight style={[styles.buttonsegments, {backgroundColor:this.switchColor(this.props.segmentName == 'Queued')}]}
+              <TouchableHighlight style={[styles.buttonsegments, {backgroundColor:this.switchColor(this.props.segmentName_Orderbook == 'Queued')}]}
                   onPress= {() => this.changeSegment('Queued')}
                   >
-                  <Text style={[styles.textsegments,{color:this.switchColortext(this.props.segmentName == 'Queued')}]}>Queued</Text>
+                  <Text style={[styles.textsegments,{color:this.switchColortext(this.props.segmentName_Orderbook == 'Queued')}]}>Queued</Text>
               </TouchableHighlight>
 
-              <TouchableHighlight style={[styles.buttonsegments,{backgroundColor:this.switchColor(this.props.segmentName == 'Fully_Filled')}]}
+              <TouchableHighlight style={[styles.buttonsegments,{backgroundColor:this.switchColor(this.props.segmentName_Orderbook == 'Fully_Filled')}]}
                 onPress= {() => this.changeSegment('Fully_Filled')}
                 >
-                  <Text style={[styles.textsegments,{color:this.switchColortext(this.props.segmentName == 'Fully_Filled')}]}>Fully Filled</Text>
+                  <Text style={[styles.textsegments,{color:this.switchColortext(this.props.segmentName_Orderbook == 'Fully_Filled')}]}>Fully Filled</Text>
               </TouchableHighlight>
 
-              <TouchableHighlight style={[styles.buttonsegments,{backgroundColor:this.switchColor(this.props.segmentName == 'Cancelled')}]}
+              <TouchableHighlight style={[styles.buttonsegments,{backgroundColor:this.switchColor(this.props.segmentName_Orderbook == 'Cancelled')}]}
                 onPress= {() => this.changeSegment('Cancelled')}
               >
-                  <Text style={[styles.textsegments,{color:this.switchColortext(this.props.segmentName == 'Cancelled')}]}>Cancelled</Text>
+                  <Text style={[styles.textsegments,{color:this.switchColortext(this.props.segmentName_Orderbook == 'Cancelled')}]}>Cancelled</Text>
               </TouchableHighlight>
 
               <TouchableHighlight style={[styles.buttonsegments,{backgroundColor:this.switchColor(this.props.segmentName_Orderbook == 'All')}]}
