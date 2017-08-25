@@ -46,7 +46,6 @@ class header_QuoteSheet extends Component {
     });
 
     return (
-      const tableHead = ['Head2', 'Head3', 'Head4', 'Head5', 'Head6', 'Head7', 'Head8', 'Head9', 'Head10','Head11','KIKI'];
       <Content>
         {/* <View style={styles.container}>
         <Text style={styles.headText}>Quote is delayed for at least 15 mins</Text>
