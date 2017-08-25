@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View,Text,StyleSheet,Image,TouchableOpacity,Dimensions} from 'react-native';
+import { View,Text,StyleSheet,Image,TouchableOpacity,Dimensions,ScrollView} from 'react-native';
 import {Tabs,Tab,Content,ScrollableTab} from 'native-base';
 import {onTouchChangeTab} from '../actions';
 import ChartLayout from './ChartLayout';
@@ -15,7 +15,7 @@ const TabIcon =({selected,title}) => {
 export default class Body_QuoteSheet extends Component {
   render (){
     return (
-      <View style={{flexDirection:'row'}}>
+      <View>
              <Tabs
               scrollWithoutAnimation = {true}
               initialPage = {0}
@@ -27,7 +27,27 @@ export default class Body_QuoteSheet extends Component {
                   activeTabStyle={{backgroundColor:'white',width:150,paddingLeft:50}}
                   tabStyle={{backgroundColor:'white',width:150,paddingLeft:50}}
                   >
-                    <ChartLayout/>
+                    <ScrollView>
+                      <ChartLayout/>
+                      <View>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                        <Text>Hello</Text>
+                      </View>
+                    </ScrollView>
                   </Tab>
 
                   <Tab heading="News"
