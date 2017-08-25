@@ -45,8 +45,8 @@ const navigatorReducer = (state = initialState,action) =>{
 
     case 6:
       return Object.assign({},state,{
-        //leftHeader:'',
-        //rightHeader:'',
+        leftHeader:'',
+        rightHeader:'New',
         bodyNumber: 6,
       });
     case 7:
@@ -119,7 +119,7 @@ const navigatorReducer = (state = initialState,action) =>{
         bodyNumber: 17,
       });
 
-      /*   Segment POSITIONS   */
+      /*   Segment OrderBook Queued   */
       case 20:
         return Object.assign({},state,{
           leftHeader: '',
@@ -133,6 +133,18 @@ const navigatorReducer = (state = initialState,action) =>{
           rightHeader: '',
           bodyNumber: 21,
         });
+        case 22:
+          return Object.assign({},state,{
+            leftHeader: '',
+            rightHeader: '',
+            bodyNumber: 22,
+          });
+        case 23:
+          return Object.assign({},state,{
+            leftHeader: '',
+            rightHeader: '',
+            bodyNumber: 23,
+          });
 
 
     default:

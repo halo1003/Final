@@ -16,5 +16,7 @@ export default{
   Transactions : 'Transactions',
   Settings : 'Settings',
   Watchlists: 'Watchlists',
+  New: 'New',
+  PriceAlert :'PriceAlert',
   '':'',
 }
