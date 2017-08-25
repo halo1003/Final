@@ -10,7 +10,9 @@ import Account from './Account';
 import OrderBook from './OrderBook';
 import Watchlists from './Watchlists';
 import Settings from './Settings';
+import PriceAlert from './PriceAlert';
 import { connect } from 'react-redux';
+import OrderQueued from '../containers/OrderQueued';
 
 
  class AppRouter extends Component {
@@ -27,8 +29,9 @@ import { connect } from 'react-redux';
           : this.props.bodyNumber == 3 ? <OrderBook/>
           : this.props.bodyNumber == 4 ? <Portfolios/>
           : this.props.bodyNumber == 5 ? <Account/>
+          : this.props.bodyNumber == 6 ? <PriceAlert/>
           : this.props.bodyNumber == 16 ? <Settings/>
-          :this.props.bodyNumber == 17 ? <QuoteSheet/>
+          : this.props.bodyNumber == 17 ? <QuoteSheet/>
           : <Watchlists/>}
         <AppFooter/>
       </Container>

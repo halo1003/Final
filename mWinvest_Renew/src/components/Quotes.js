@@ -1,46 +1,51 @@
 import React, { Component } from "react";
 import { Content } from 'native-base';
-import { View, StyleSheet, ScrollView, Animated, Text,TouchableOpacity, ToastAndroid} from "react-native";
-import { Table, TableWraper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
-import QuoteSheet from './QuoteSheet';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { onTouchChangeTab} from '../actions';
+import { View, StyleSheet, ScrollView, Animated, Text, ToastAndroid, TouchableOpacity} from "react-native";
+import { Table, TableWraper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 
 class Quotes extends Component {
 
   constructor(props) {
     super(props);
-    this.pageScrollPosition = new Animated.Value(0);
-    this.pageScrollListener = Animated.event(
-      [{nativeEvent: {contentOffset: {y: this.pageScrollPosition }}}]
-    );
+    topScrolling = false;
+    bottomScrolling = false;
+    topScroll = null;
+    bottomScroll = null;
   }
-  click(key){
-    ToastAndroid.show(key.toString(),ToastAndroid.SHORT);
-    this.props.dispatch(onTouchChangeTab(17));
+  topScrollStartDrag(){
+    topScrolling = true;
+    bottomScrolling = false;
   }
-  componentDidMount() {
-    // when the scroll position of the currently visible
-    // view changes, update this scrollview position
-    this.listener = this.pageScrollPosition.addListener((position) => {
-      this.leftScroll.scrollTo({
-        x: 0,
-        y: position.value,
-        animated: false
-      });
-      this.rightScroll.scrollTo({
-        x: 0,
-        y: position.value,
-        animated: false
-      });
-    });
+  bottomScrollStartDrag(){
+    topScrolling = false;
+    bottomScrolling = true;
   }
+  handleTop(event){
+    if(!bottomScrolling){
+      bottomScroll.scrollTo(
+        {x: event.nativeEvent.contentOffset.x, y: 0, animated: false}
+      );
+    }
+  }
+  handleBottom(event){
+    if(!topScrolling){
+      topScroll.scrollTo(
+        {x: event.nativeEvent.contentOffset.x, y: 0, animated: false}
+      );
+    }
+  }
+  changeTab(value){
+     this.props.dispatch(onTouchChangeTab(value));
+  }
+
   render() {
-    const tableHead = ['Head2', 'Head3', 'Head4', 'Head5', 'Head6', 'Head7', 'Head8', 'Head9', 'Head10','Head11','KIKI'];
+    const tableHead = ['Chart', 'Last', 'Net Chng', 'Open', 'Bid', 'Ask', 'Head8', 'Head9', 'Head10','Head11','KIKI'];
     const tableTitle = ['Title', 'Title2', 'Tilte3', 'Title4', 'Title5',
                         'KIKI','Title', 'Title2', 'Tilte3', 'Title4',
                         'Title5','kiki','Title', 'Title2', 'Tilte3',
-                        'Title4', 'Title5','KIKI'];
+                        'Title4', 'Title5','KIKI',];
     const tableData = [
       [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
       ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j','kiki'],
@@ -64,50 +69,55 @@ class Quotes extends Component {
       [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
       [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
     ];
-    const widthArr = [60, 60, 60, 60, 60, 60, 60, 60, 60, 60,60];
+    const widthArr = [80, 80, 80, 80, 80, 80, 80, 80, 80, 80,80];
     const heightArr = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30,30, 30, 30,30, 30, 30, 30, 30];
     return (
       <View style={{flex: 1}}>
         <Table style={styles.table}>
-          <TableWraper style={{width: 80}}>
-            <Cell data="Head" style={{flex: 1, backgroundColor: '#333'}} textStyle={styles.headText}/>
-            <TableWraper style={{flex : 8}}>
+          <TableWraper style={{flexDirection: 'row'}}>
+            <Cell data="Symbol" style={{flex : 1, width: 90, height: 30, backgroundColor: 'white'}} textStyle={styles.headText}/>
+            <TableWraper style={{flex : 5, backgroundColor: 'white', height: 30}}>
               <ScrollView
-                ref = {(instance) => this.leftScroll = instance}
-                scrollEventThrottle={50}
-                onScroll= {this.pageScrollListener}
-                showsVerticalScrollIndicator = {true}
+                horizontal={true}
+                showsHorizontalScrollIndicator = {true}
+                ref = {(instance) => topScroll = instance}
+                scrollEventThrottle={16}
+                onTouchMove={this.topScrollStartDrag}
+                onScroll= {this.handleTop}
               >
-                {
-                  tableTitle.map((data1, i) => (
-                    <TouchableOpacity style={{height: 30}} onPress= {() => this.click(i)}>
-                      <Cell key={i} data={data1}  style={{height: 30}} widthArr={widthArr} textStyle={styles.listText}/>
-                    </TouchableOpacity>
-                  ))
-                }
+                <Row data={tableHead} style={{backgroundColor: 'white'}} textStyle={styles.headText} widthArr={widthArr}/>
               </ScrollView>
             </TableWraper>
           </TableWraper>
-
-          <ScrollView horizontal={true} showsHorizontalScrollIndicator = {false}>
-            <TableWraper>
-              <Row data={tableHead} style={{flex: 1, backgroundColor: '#333'}} textStyle={styles.headText} widthArr={widthArr}/>
-              <TableWraper style={{flex : 8}}>
+          <ScrollView horizontal={false} showsVerticalScrollIndicator = {true}>
+            <TableWraper style={{flexDirection: 'row'}}>
+              <TableWraper style={{flex : 1.01}}>
+                {
+                  tableTitle.map((data, i) =>(
+                    <TouchableOpacity onPress= {() => this.changeTab(17)}>
+                      <Cell key={i} data={data} style={[styles.list, i%2 && {backgroundColor: 'white'}, {width: 60, height: 30}]}  textStyle={styles.listText}/>
+                    </TouchableOpacity>
+                  ))
+                }
+              </TableWraper>
+              <TableWraper style={{flex : 5}}>
                 <ScrollView
-                  ref={(instance) => this.rightScroll = instance}
-                  scrollEventThrottle={50}
-                  onScroll= {this.pageScrollListener}
-                  showsVerticalScrollIndicator = {true}
+                  horizontal={true}
+                  showsHorizontalScrollIndicator = {true}
+                  ref = {(instance) => bottomScroll = instance}
+                  scrollEventThrottle={16}
+                  onTouchMove={this.bottomScrollStartDrag}
+                  onScroll= {this.handleBottom}
                 >
-
+                <TableWraper style={{flexDirection: 'column'}}>
                   {
-                    tableData.map((data2, i) => (
-                      <TouchableOpacity style={{height: 30}} onPress= {() => this.click(i)}>
-                        <Row key={i} data={data2}  style={{height: 30}} widthArr={widthArr} textStyle={styles.listText}/>
-                      </TouchableOpacity>
-                    ))
+                  tableData.map((data, i) => (
+                    <TouchableOpacity onPress= {() => this.changeTab(17)}>
+                      <Row key={i} data={data} style={[styles.list, i%2 && {backgroundColor: 'white'}]} widthArr={widthArr} textStyle={styles.listText}/>
+                    </TouchableOpacity>
+                  ))
                   }
-                  {/*s<Rows data={tableData} style={{height: 30}} widthArr={widthArr}/>*/}
+                </TableWraper>
                 </ScrollView>
               </TableWraper>
             </TableWraper>
@@ -119,12 +129,16 @@ class Quotes extends Component {
 }
 
 const styles = StyleSheet.create({
-  table: { width: 360, flexDirection: 'row' , flex: 1, borderWidth : 0},
-  head: { backgroundColor: '#333', height: 50},
-  headText: { color: '#fff', textAlign: 'center' },
+  table: { width: 360, flexDirection: 'column' , flex: 1},
+  head: { backgroundColor: 'white', height: 50},
+  headText: { color: 'black', textAlign: 'right' },
   titleText: { marginLeft: 6 },
-  list: { height: 28, backgroundColor: '#f0f0f0' },
+  list: { height: 30, backgroundColor: 'white' },
   listText: { textAlign: 'right', marginRight: 6 }
 })
-
-export default connect()(Quotes);
+const mapStateToProps = (state,ownProps) =>{
+  return{
+    bodyNumber: state.navigatorReducer.bodyNumber,
+  }
+}
+export default connect(mapStateToProps)(Quotes);

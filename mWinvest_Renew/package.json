@@ -15,6 +15,7 @@
     "react-native": "0.46.0",
     "react-native-chart": "^1.0.8-beta",
     "react-native-collapsible": "^0.9.0",
+    "react-native-directed-scrollview": "^1.2.1",
     "react-native-i18n": "^2.0.4",
     "react-native-image-header-scroll-view": "^0.6.1",
     "react-native-keyboard-aware-scroll-view": "^0.2.9",
