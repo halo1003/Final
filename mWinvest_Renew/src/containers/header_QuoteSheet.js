@@ -46,7 +46,10 @@ class header_QuoteSheet extends Component {
     });
 
     return (
+<<<<<<< HEAD
       
+=======
+>>>>>>> 315dbd679d9433b97a404aa60eacbab329fc7b4d
       <Content>
         {/* <View style={styles.container}>
         <Text style={styles.headText}>Quote is delayed for at least 15 mins</Text>

@@ -41,61 +41,99 @@ class Quotes extends Component {
   }
 
   render() {
-    const tableHead = ['Chart', 'Last', 'Net Chng', 'Open', 'Bid', 'Ask', 'Head8', 'Head9', 'Head10','Head11','KIKI'];
+    const tableHead = ['Chart', 'Last', 'Net Chng', 'Open', 'Bid', 'Ask','Head7', 'Head8', 'Head9', 'Head10'];
     const tableTitle = ['Title', 'Title2', 'Tilte3', 'Title4', 'Title5',
-                        'KIKI','Title', 'Title2', 'Tilte3', 'Title4',
-                        'Title5','kiki','Title', 'Title2', 'Tilte3',
-                        'Title4', 'Title5','KIKI',];
+                        'Title', 'Title2', 'Tilte3', 'Title4', 'Title5',
+                        'Title', 'Title2', 'Tilte3', 'Title4', 'Title5',
+                        'Title', 'Title2', 'Tilte3', 'Title4', 'Title5',
+                        'Title', 'Title2', 'Tilte3', 'Title4', 'Title5',
+                        'Title', 'Title2', 'Tilte3', 'Title4', 'Title5',
+                        'Title', 'Title2', 'Tilte3', 'Title4', 'Title5',
+                        'Title', 'Title2', 'Tilte3', 'Title4', 'Title5',
+                        'Title', 'Title2', 'Tilte3', 'Title4', 'Title5',
+                  ];
     const tableData = [
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
-      ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j','kiki'],
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
 
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
-      ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j','kiki'],
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
 
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
-      ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j','kiki'],
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
 
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
-      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10,'kiki'],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
     ];
-    const widthArr = [80, 80, 80, 80, 80, 80, 80, 80, 80, 80,80];
+    const widthArr = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
     const heightArr = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30,30, 30, 30,30, 30, 30, 30, 30];
     return (
       <View style={{flex: 1}}>
         <Table style={styles.table}>
           <TableWraper style={{flexDirection: 'row'}}>
-            <Cell data="Symbol" style={{flex : 1, width: 90, height: 30, backgroundColor: 'white'}} textStyle={styles.headText}/>
-            <TableWraper style={{flex : 5, backgroundColor: 'white', height: 30}}>
+            <Cell condition={true} data="Symbol" style={{flex : 1, width: 60, height: 30, backgroundColor: 'white'}} textStyle={styles.headText}/>
+            <TableWraper style={{flex : 1, backgroundColor: 'white', height: 30}}>
               <ScrollView
                 horizontal={true}
-                showsHorizontalScrollIndicator = {true}
+                showsHorizontalScrollIndicator = {false}
                 ref = {(instance) => topScroll = instance}
                 scrollEventThrottle={16}
                 onTouchMove={this.topScrollStartDrag}
                 onScroll= {this.handleTop}
               >
-                <Row data={tableHead} style={{backgroundColor: 'white'}} textStyle={styles.headText} widthArr={widthArr}/>
+                <Row data={tableHead} height= {30} style={{backgroundColor: 'white'}} textStyle={styles.headText} widthArr={widthArr}/>
               </ScrollView>
             </TableWraper>
           </TableWraper>
           <ScrollView horizontal={false} showsVerticalScrollIndicator = {true}>
             <TableWraper style={{flexDirection: 'row'}}>
-              <TableWraper style={{flex : 1.01}}>
+              <TableWraper style={{flex : 1}}>
                 {
                   tableTitle.map((data, i) =>(
                     <TouchableOpacity onPress= {() => this.changeTab(17)}>
-                      <Cell key={i} data={data} style={[styles.list, i%2 && {backgroundColor: 'white'}, {width: 60, height: 30}]}  textStyle={styles.listText}/>
+                      <Cell condition={true} key={i} data={data} style={[styles.list, i%2 && {backgroundColor: 'white'}, {width: 60, height: 30}]}  textStyle={styles.listText}/>
                     </TouchableOpacity>
                   ))
                 }
@@ -108,12 +146,13 @@ class Quotes extends Component {
                   scrollEventThrottle={16}
                   onTouchMove={this.bottomScrollStartDrag}
                   onScroll= {this.handleBottom}
+
                 >
                 <TableWraper style={{flexDirection: 'column'}}>
                   {
                   tableData.map((data, i) => (
                     <TouchableOpacity onPress= {() => this.changeTab(17)}>
-                      <Row key={i} data={data} style={[styles.list, i%2 && {backgroundColor: 'white'}]} widthArr={widthArr} textStyle={styles.listText}/>
+                      <Row key={i} data={data} height={30} style={[styles.list, i%2 && {backgroundColor: 'white'}]} widthArr={widthArr} textStyle={styles.listText}/>
                     </TouchableOpacity>
                   ))
                   }
@@ -130,11 +169,11 @@ class Quotes extends Component {
 
 const styles = StyleSheet.create({
   table: { width: 360, flexDirection: 'column' , flex: 1},
-  head: { backgroundColor: 'white', height: 50},
-  headText: { color: 'black', textAlign: 'right' },
+  head: { backgroundColor: 'white', height: 30},
+  headText: { color: 'black', textAlign: 'center'},
   titleText: { marginLeft: 6 },
   list: { height: 30, backgroundColor: 'white' },
-  listText: { textAlign: 'right', marginRight: 6 }
+  listText: { textAlign: 'center', marginRight: 6 }
 })
 const mapStateToProps = (state,ownProps) =>{
   return{
