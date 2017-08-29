@@ -18,7 +18,7 @@ import {connect} from 'react-redux';
     <Content>
       <SearchTab/>
       <OrderSegments/>
-    <View>
+    <View style={{flex:1}}>
         {
           this.props.segmentName_Orderbook == 'Queued' ? <OrderQueued/>
           :this.props.segmentName_Orderbook == 'All' ? <OrderAll/>

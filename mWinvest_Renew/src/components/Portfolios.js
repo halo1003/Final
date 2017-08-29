@@ -37,23 +37,24 @@ export default class Portfolios extends Component {
                          source = {require('../images/next.png')}/>
             </View>
           </View>
-        <FlatList
-            data=
-            {
-                [{key: 'Cash Balance',number:'60,504.24'},
-                {key: 'Initial Margin',number:'29,658.29'},
-                {key: 'Maintenance Margin',number:'58,748.86'},
-                {key: 'Floating P/L',number:'29,658.29'},
-                {key: 'Trading P/L',number:'34,788.11'}]
-          }
-            renderItem={({item}) => <View style={{flexDirection:'row',justifyContent:'space-between',borderBottomWidth:0.5,borderBottomColor:'grey',padding:5}}>
-                                    <Text>{item.key}</Text>
-                                    <Text>{item.number}</Text>
-                                    </View>
+          <FlatList
+              data=
+              {
+                  [{key: 'Cash Balance',number:'60,504.24'},
+                  {key: 'Initial Margin',number:'29,658.29'},
+                  {key: 'Maintenance Margin',number:'58,748.86'},
+                  {key: 'Floating P/L',number:'29,658.29'},
+                  {key: 'Trading P/L',number:'34,788.11'}]
+            }
+              renderItem={({item}) => <View style={{flexDirection:'row',justifyContent:'space-between',borderBottomWidth:0.5,borderBottomColor:'grey',padding:5}}>
+                                      <Text>{item.key}</Text>
+                                      <Text>{item.number}</Text>
+                                      </View>
 
-                                  }
+                                    }
 
-            />
+              />
+
         </View>
 
         {/*--------------------POSITONS TASK--------------------------*/}

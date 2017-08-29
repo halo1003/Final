@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View,Text,TextInput,ScrollView,StyleSheet,Dimensions } from 'react-native';
+import { View,Text,TextInput,ScrollView,StyleSheet,Dimensions,Image } from 'react-native';
 import {Header,Left,Button,Icon,Body,Right,Title} from 'native-base';
 import {onTouchChangeTab} from '../actions';
 import {connect} from 'react-redux';
@@ -41,7 +41,7 @@ class AppHeader extends Component {
   render() {
     return (
       <ThemedHeader noShadow style={{borderBottomColor:'#87cefa',borderBottomWidth:2,backgroundColor:'@backgroundColor'}}>
-      <View style={{justifyContent:'space-between',flexDirection:'row',alignItems:'center',width:Dimensions.get('window').width}}>
+      <View style={{padding:5,justifyContent:'space-between',flexDirection:'row',alignItems:'center',width:Dimensions.get('window').width}}>
        <View>
          <Button transparent
           onPress = {this.onLeftHeaderTouch}>
@@ -52,7 +52,7 @@ class AppHeader extends Component {
        </View>
        <View>
          <ThemedTitle style={{color:'@textColor'}}>
-           { this.props.bodyNumber == 1 ? I18n.t('Quote')
+           { this.props.bodyNumber == 1 ? <Image style={{height:Dimensions.get('window').height/20,width:Dimensions.get('window').width/2,resizeMode:'stretch'}} source={require('../images/ttl_logo.png')} />
            : this.props.bodyNumber == 2 ? I18n.t('NewOrder')
            : this.props.bodyNumber == 3 ? I18n.t('OrderBook')
            : this.props.bodyNumber == 4 ? I18n.t('Portfolio')

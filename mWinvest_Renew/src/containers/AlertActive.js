@@ -6,7 +6,7 @@ class AlertActive extends Component {
   render () {
     return (
       <Content>
-        <Text>DCM TOAN</Text>
+        
       </Content>
     );
   }

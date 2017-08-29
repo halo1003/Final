@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Content } from 'native-base';
 import { connect } from 'react-redux';
 import { onTouchChangeTab} from '../actions';
-import { View, StyleSheet, ScrollView, Animated, Text, ToastAndroid, TouchableOpacity} from "react-native";
+import { View, StyleSheet, ScrollView, Animated, Text, ToastAndroid, TouchableOpacity,Dimensions} from "react-native";
 import { Table, TableWraper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
+import SearchTab from '../containers/SearchTab'
 
 class Quotes extends Component {
 
@@ -111,9 +112,19 @@ class Quotes extends Component {
     const heightArr = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30,30, 30, 30,30, 30, 30, 30, 30];
     return (
       <View style={{flex: 1}}>
+        <View style={styles.container}>
+            <Text style={styles.headText}>Quote is delayed for at least 15 mins</Text>
+        </View>
+        <View style={{padding:10}}>
+            <Text style={{fontSize:20,color:'blue',textAlign:'center'}}>HK Index Futures</Text>
+        </View>
+        <View style={{backgroundColor:'#efefef'}}>
+            <SearchTab/>
+        </View>
         <Table style={styles.table}>
           <TableWraper style={{flexDirection: 'row'}}>
-            <Cell condition={true} data="Symbol" style={{flex : 1, width: 60, height: 30, backgroundColor: 'white'}} textStyle={styles.headText}/>
+            <Cell condition={true} data="Symbol"
+            style={{flex : 1, width: 60, height: 30, backgroundColor: 'white'}} textStyle={styles.headText}/>
             <TableWraper style={{flex : 1, backgroundColor: 'white', height: 30}}>
               <ScrollView
                 horizontal={true}
@@ -168,12 +179,21 @@ class Quotes extends Component {
 }
 
 const styles = StyleSheet.create({
-  table: { width: 360, flexDirection: 'column' , flex: 1},
+  table: { width:Dimensions.get('window').width , flexDirection: 'column' , flex: 1},
   head: { backgroundColor: 'white', height: 30},
   headText: { color: 'black', textAlign: 'center'},
   titleText: { marginLeft: 6 },
   list: { height: 30, backgroundColor: 'white' },
-  listText: { textAlign: 'center', marginRight: 6 }
+  listText: { textAlign: 'center', marginRight: 6 },
+  container: {
+    backgroundColor: '#efefef',
+    width: Dimensions.get('window').width,
+    padding:5
+  },
+  headText:{
+    alignSelf: 'flex-end',
+    fontSize:10
+  },
 })
 const mapStateToProps = (state,ownProps) =>{
   return{
