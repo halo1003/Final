@@ -18,9 +18,9 @@ import {connect} from 'react-redux';
     <Content>
       <SearchTab/>
       <OrderSegments/>
-    <View>
+    <View style={{flex:1}}>
         {
-          this.props.segmentName == 'Queued' ? <OrderQueued/>
+          this.props.segmentName_Orderbook == 'Queued' ? <OrderQueued/>
           :this.props.segmentName_Orderbook == 'All' ? <OrderAll/>
           :<Order/>
         }
@@ -32,7 +32,7 @@ import {connect} from 'react-redux';
 
 const mapStateToProps = (state,ownProps) =>{
   return{
-    segmentName: state.segmentReducer.segmentName,
+
     segmentName_Orderbook: state.segmentReducer.segmentName_Orderbook,
   }
 }

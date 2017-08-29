@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View,Text,TouchableHighlight,StyleSheet,Dimensions} from 'react-native';
+import {Alert,View,Text,TouchableHighlight,StyleSheet,Dimensions} from 'react-native';
 import {Content} from 'native-base';
 import { onTouchChangeSegment} from '../actions';
 import {connect} from 'react-redux';
@@ -13,12 +13,14 @@ class AlertSegment extends Component {
       this.switchColor = this.switchColor.bind(this);
       this.switchColortext= this.switchColortext.bind(this);
   }
-  switchColor(selected) {
+  switchColor(selected){
+
     if(selected)
       return 'blue';
     return 'white';
   }
   switchColortext(selected){
+
     if(selected)
       return 'white';
     return 'black'
@@ -29,6 +31,7 @@ class AlertSegment extends Component {
    }
 
   render () {
+      console.log(this.props);
     return (
       <Content>
           <View style={styles.ordersegment}>
@@ -65,7 +68,7 @@ const styles = StyleSheet.create({
     ordersegment : {
       flex:1,
       flexDirection:'row',
-      marginHorizontal:10,
+      marginHorizontal:10,      
       justifyContent:'center',
     },
     buttonsegments : {

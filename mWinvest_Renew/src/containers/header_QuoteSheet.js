@@ -46,10 +46,11 @@ class header_QuoteSheet extends Component {
     });
 
     return (
+
       <Content>
-        {/* <View style={styles.container}>
+         <View style={styles.container}>
         <Text style={styles.headText}>Quote is delayed for at least 15 mins</Text>
-      </View> */}
+      </View>
 
       <View style={styles.statushead}>
         <View style={styles.bellandarrow}>

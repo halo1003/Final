@@ -5,7 +5,6 @@ import SearchTab from '../containers/SearchTab';
 import AlertSegment from '../containers/AlertSegment';
 import AlertAll from '../containers/AlertAll';
 import AlertActive from '../containers/AlertActive';
-import Order from './Order';
 import {connect} from 'react-redux';
 
 class PriceAlert extends Component {
@@ -18,11 +17,11 @@ class PriceAlert extends Component {
    <Content>
      <SearchTab/>
      <AlertSegment/>
-   <View>
+   <View style={{flex:1}}>
        {
           this.props.segmentName == 'Active' ? <AlertActive/>
          :this.props.segmentName == 'All_Alert' ? <AlertAll/>
-         :<Order/>
+         :<AlertActive/>
        }
      </View>
    </Content>

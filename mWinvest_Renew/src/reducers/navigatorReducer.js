@@ -1,6 +1,6 @@
 const initialState = {
   leftHeader: 'Watchlists',
-  rightHeader: '',
+  rightHeader: 'Edit',
   bodyNumber: 1,
 };
 
@@ -11,7 +11,7 @@ const navigatorReducer = (state = initialState,action) =>{
     case 1:
       return Object.assign({},state,{
         leftHeader: 'Watchlists',
-        rightHeader: '',
+        rightHeader: 'Edit',
         bodyNumber: 1,
       });
     //NEW ORDER

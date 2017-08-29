@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View,TextInput,StyleSheet} from 'react-native';
+import {View,TextInput,StyleSheet,Image,Text} from 'react-native';
 import {Content} from 'native-base'
 
 export default class SearchTab extends Component {
@@ -15,25 +15,27 @@ export default class SearchTab extends Component {
     }
     render (){
       return (
-          <Content>
+          <View>
               <TextInput style={styles.searchinput}
                 onChangeText ={(text) => this.filterSearch(text)}
-              >
-              
-
-              </TextInput>
-          </Content>
+                underlineColorAndroid='transparent'
+                placeholder='Search'
+              />
+          </View>
       );
     }
 }
 
 const styles = StyleSheet.create({
   searchinput : {
-    height: 30,
     borderWidth:1,
-    borderColor:'red',
     marginVertical:10,
-    marginHorizontal:10
+    marginHorizontal:10,
+    borderRadius:5,
+    backgroundColor:'white',
+    padding:5,
+    textAlign:'center',
+
 
   }
 })

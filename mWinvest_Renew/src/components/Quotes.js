@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Content } from 'native-base';
 import { connect } from 'react-redux';
 import { onTouchChangeTab} from '../actions';
-import { View, StyleSheet, ScrollView, Animated, Text, ToastAndroid, TouchableOpacity} from "react-native";
+import SearchTab from '../containers/SearchTab';
+import { View, StyleSheet, ScrollView, Animated, Text, ToastAndroid, TouchableOpacity, Dimensions} from "react-native";
 import { Table, TableWraper, Row, Rows, Col, Cols, Cell, Cell1 } from 'react-native-table-component';
 
 class Quotes extends Component {
@@ -88,83 +89,96 @@ const tableData = [
   [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
   [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
 
-  [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
-  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
-  [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
-  [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
-  [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
-
-  [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
-  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
-  [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
-  [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
-  [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
-];
-const widthArr = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
-const heightArr = [60,60, 60, 60, 60, 60, 60,60, 60, 60, 60, 60, 60,60, 60, 60, 60, 60];
-return (
-  <View style={{flex: 1}}>
-    <Table style={styles.table}>
-      <TableWraper style={{flexDirection: 'row'}}>
-        <Cell1 condition={1} data="Symbol" style={{width: 110, height: 30, backgroundColor: 'white'}} textStyle={styles.headText}/>
-        <TableWraper style={{flex : 1, backgroundColor: 'white', height: 30}}>
-          <ScrollView
-            horizontal={true}
-            showsHorizontalScrollIndicator = {false}
-            ref = {(instance) => topScroll = instance}
-            scrollEventThrottle={16}
-            onTouchMove={this.topScrollStartDrag}
-            onScroll= {this.handleTop}
-            >
-              <Row data={tableHead} height= {30} style={{backgroundColor: 'white'}} textStyle={styles.headText} widthArr={widthArr}/>
-            </ScrollView>
-          </TableWraper>
-        </TableWraper>
-        <ScrollView horizontal={false} showsVerticalScrollIndicator = {true}>
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+      [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
+    ];
+    const widthArr = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
+    const heightArr = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30,30, 30, 30,30, 30, 30, 30, 30];
+    return (
+      <View style={{flex: 1}}>
+        <View style={styles.container}>
+            <Text style={styles.headText}>Quote is delayed for at least 15 mins</Text>
+        </View>
+        <View style={{padding:10}}>
+            <Text style={{fontSize:15,color:'blue',textAlign:'center'}}>HK Index Futures</Text>
+        </View>
+        <View style={{backgroundColor:'#efefef'}}>
+            <SearchTab/>
+        </View>
+        <Table style={styles.table}>
           <TableWraper style={{flexDirection: 'row'}}>
-            <TableWraper>
-              {
-                tableTitle.map((data, i) =>(
-                  <TouchableOpacity onPress= {() => this.changeTab(17)}>
-                    <Cell condition={1} key={i} data={data} style={[styles.list, {height: 50, width:110}]}  textStyle={styles.listText}/>
-                  </TouchableOpacity>
-                ))
-              }
-            </TableWraper>
-            <TableWraper>
+            <Cell1 condition={true} data="Symbol" style={{width: 110, height: 30, backgroundColor: 'white'}} textStyle={styles.headText}/>
+            <TableWraper style={{flex : 1, backgroundColor: 'white', height: 30}}>
               <ScrollView
                 horizontal={true}
-                showsHorizontalScrollIndicator = {true}
-                ref = {(instance) => bottomScroll = instance}
+                showsHorizontalScrollIndicator = {false}
+                ref = {(instance) => topScroll = instance}
                 scrollEventThrottle={16}
-                onTouchMove={this.bottomScrollStartDrag}
-                onScroll= {this.handleBottom}
+                onTouchMove={this.topScrollStartDrag}
+                onScroll= {this.handleTop}
                 >
-                  <TableWraper>
-                    {
-                      tableData.map((data, i) => (
-                        <TouchableOpacity onPress= {() => this.changeTab(17)}>
-                          <Row key={i} data={data} height = {50} style={[styles.list, i%2 && {backgroundColor: 'white'}]} widthArr={widthArr} textStyle={styles.listText}/>
-                        </TouchableOpacity>
-                      ))
-                    }
-                  </TableWraper>
+                  <Row data={tableHead} height= {30} style={{backgroundColor: 'white'}} textStyle={styles.headText} widthArr={widthArr}/>
                 </ScrollView>
               </TableWraper>
             </TableWraper>
-          </ScrollView>
-        </Table>
+            <ScrollView horizontal={false} showsVerticalScrollIndicator = {true}>
+              <TableWraper style={{flexDirection: 'row'}}>
+                <TableWraper>
+                  {
+                    tableTitle.map((data, i) =>(
+                      <TouchableOpacity onPress= {() => this.changeTab(17)}>
+                        <Cell condition={true} key={i} data={data} style={[styles.list, {height: 50, width:110}]}  textStyle={styles.listText}/>
+                      </TouchableOpacity>
+                    ))
+                  }
+                </TableWraper>
+                <TableWraper>
+                  <ScrollView
+                    horizontal={true}
+                    showsHorizontalScrollIndicator = {true}
+                    ref = {(instance) => bottomScroll = instance}
+                    scrollEventThrottle={16}
+                    onTouchMove={this.bottomScrollStartDrag}
+                    onScroll= {this.handleBottom}
+                    >
+                      <TableWraper>
+                        {
+                          tableData.map((data, i) => (
+                            <TouchableOpacity onPress= {() => this.changeTab(17)}>
+                              <Row key={i} data={data} height = {50} style={[styles.list, i%2 && {backgroundColor: 'white'}]} widthArr={widthArr} textStyle={styles.listText}/>
+                            </TouchableOpacity>
+                          ))
+                        }
+                      </TableWraper>
+                    </ScrollView>
+                  </TableWraper>
+                </TableWraper>
+              </ScrollView>
+            </Table>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  table: { width: 360, flexDirection: 'column' , flex: 1},
+  table: { width:Dimensions.get('window').width , flexDirection: 'column' , flex: 1},
   head: { backgroundColor: 'white', height: 30},
   headText: { color: 'black', textAlign: 'center'},
+  titleText: { marginLeft: 6 },
   list: {height: 50, backgroundColor: 'white' },
-  listText: { marginRight: 0}
+  listText: { marginRight: 0},
+  container: {
+    backgroundColor: '#efefef',
+    width: Dimensions.get('window').width,
+    padding:5
+  },
+  headText:{
+    alignSelf: 'flex-end',
+    fontSize:10
+  },
 })
 const mapStateToProps = (state,ownProps) =>{
   return{
