@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
-import {View,Text,TouchableHighlight,StyleSheet,Dimensions} from 'react-native';
+
+import React, { Component } from "react";
 import {Content} from 'native-base';
 
 class AlertActive extends Component {
   render () {
     return (
       <Content>
-        
+
       </Content>
     );
   }
+
 }
-export default AlertActive;
+export default AlertActive
