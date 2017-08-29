@@ -109,7 +109,7 @@ class Quotes extends Component {
       [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10],
     ];
     const widthArr = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
-    const heightArr = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30,30, 30, 30,30, 30, 30, 30, 30];
+    const heightArr = [45, 45, 30, 30, 30, 30, 30, 30, 30, 30,30, 30, 30,30, 30, 30, 30, 30];
     return (
       <View style={{flex: 1}}>
         <View style={styles.container}>
@@ -124,8 +124,8 @@ class Quotes extends Component {
         <Table style={styles.table}>
           <TableWraper style={{flexDirection: 'row'}}>
             <Cell condition={true} data="Symbol"
-            style={{flex : 1, width: 60, height: 30, backgroundColor: 'white'}} textStyle={styles.headText}/>
-            <TableWraper style={{flex : 1, backgroundColor: 'white', height: 30}}>
+            style={{ width: 60, height: 45, backgroundColor: 'white'}} textStyle={styles.headText}/>
+            <TableWraper style={{ backgroundColor: 'white', height: 45}}>
               <ScrollView
                 horizontal={true}
                 showsHorizontalScrollIndicator = {false}
@@ -163,7 +163,7 @@ class Quotes extends Component {
                   {
                   tableData.map((data, i) => (
                     <TouchableOpacity onPress= {() => this.changeTab(17)}>
-                      <Row key={i} data={data} height={30} style={[styles.list, i%2 && {backgroundColor: 'white'}]} widthArr={widthArr} textStyle={styles.listText}/>
+                      <Row key={i} data={data} height={45} style={[styles.list, i%2 && {backgroundColor: 'white'}]} widthArr={widthArr} textStyle={styles.listText}/>
                     </TouchableOpacity>
                   ))
                   }
@@ -183,8 +183,8 @@ const styles = StyleSheet.create({
   head: { backgroundColor: 'white', height: 30},
   headText: { color: 'black', textAlign: 'center'},
   titleText: { marginLeft: 6 },
-  list: { height: 30, backgroundColor: 'white' },
-  listText: { textAlign: 'center', marginRight: 6 },
+  list: { height: 45, backgroundColor: 'white' },
+  listText: { textAlign: 'right', marginRight: 6 },
   container: {
     backgroundColor: '#efefef',
     width: Dimensions.get('window').width,
